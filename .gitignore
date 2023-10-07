@@ -2,3 +2,5 @@
 android/
 *.apk
 *.apk.idsig
+*c8732008-73d9-44c3-be78-f3bc0c5a4f61.vsidx
+*.suo

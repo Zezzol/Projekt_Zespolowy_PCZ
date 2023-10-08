@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1ptt4bhdwpms"]
+[gd_scene load_steps=6 format=3 uid="uid://b1ptt4bhdwpms"]
 
 [ext_resource type="Script" path="res://test.cs" id="1_mao5e"]
 [ext_resource type="Texture2D" uid="uid://bsxixvv4x455t" path="res://Textury/Joystick_rama.png" id="2_rybur"]
 [ext_resource type="Texture2D" uid="uid://dwytqom07jcck" path="res://Textury/Joystick_srodek.png" id="3_fip7w"]
+[ext_resource type="Script" path="res://Joystick.cs" id="4_30dxc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_34081"]
 radius = 48.0
@@ -20,14 +21,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_vertical = 8
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Joystick_rama" type="Sprite2D" parent="CanvasLayer/Control"]
-position = Vector2(0, -100)
+position = Vector2(45, -80)
 texture = ExtResource("2_rybur")
 centered = false
+offset = Vector2(-33, -33)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Control/Joystick_rama"]
-position = Vector2(33, 33)
-texture_normal = ExtResource("3_fip7w")
+[node name="Joystick" type="TouchScreenButton" parent="CanvasLayer/Control/Joystick_rama"]
+position = Vector2(17, 17)
+texture_pressed = ExtResource("3_fip7w")
 shape = SubResource("CircleShape2D_34081")
+script = ExtResource("4_30dxc")

@@ -9,11 +9,13 @@ public partial class Joystick : TouchScreenButton
     private int ignore = 150;
     private Vector2 buttonSize;
     private Vector2 buttonPosition;
-    // Called when the node enters the scene tree for the first time.
+    Node stateknode;
+    
     public override void _Ready()
     {
         buttonSize = new Vector2(TexturePressed.GetWidth(), TexturePressed.GetHeight());
-        
+        stateknode = GetTree().Root.GetNode("Player/Statek");
+        GD.Print(stateknode.Name);
 
     }
     public override void _Process(double delta)
@@ -22,7 +24,7 @@ public partial class Joystick : TouchScreenButton
         {
             Position = Vector2.Zero;
         }
-        Node stateknode = GetTree().Root.GetNode("test/Statek");
+
         if (stateknode != null && stateknode.IsInsideTree())
         {
             stateknode.Call("ReciveJoystick", Position / granica);

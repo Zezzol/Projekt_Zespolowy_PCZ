@@ -1,15 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1ptt4bhdwpms"]
+[gd_scene load_steps=8 format=3 uid="uid://b1ptt4bhdwpms"]
 
 [ext_resource type="Script" path="res://src/test.cs" id="1_mjvnc"]
 [ext_resource type="Texture2D" uid="uid://bsxixvv4x455t" path="res://Textury/Joystick_rama.png" id="2_rybur"]
 [ext_resource type="Texture2D" uid="uid://dwytqom07jcck" path="res://Textury/Joystick_srodek.png" id="3_fip7w"]
 [ext_resource type="Script" path="res://src/Joystick.cs" id="4_30dxc"]
+[ext_resource type="Script" path="res://src/Statek.cs" id="5_g42v4"]
+[ext_resource type="Texture2D" uid="uid://dht5teq5df1dt" path="res://Textury/statek.png" id="5_hnclq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_34081"]
 radius = 48.0
 
 [node name="test" type="Node2D"]
 script = ExtResource("1_mjvnc")
+
+[node name="Statek" type="CharacterBody2D" parent="."]
+position = Vector2(344, 158)
+script = ExtResource("5_g42v4")
+
+[node name="Statek_kadlub" type="Sprite2D" parent="Statek"]
+texture = ExtResource("5_hnclq")
+
+[node name="Statek_kolizja" type="CollisionPolygon2D" parent="Statek"]
+polygon = PackedVector2Array(15, 15, 0, -15, -15, 15)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

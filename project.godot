@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Projekt Grupowy"
-run/main_scene="res://src/test.tscn"
+run/main_scene="res://src/Player.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 

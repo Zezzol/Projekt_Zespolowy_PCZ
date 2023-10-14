@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8xgxqrdh2fcb"]
+
+[ext_resource type="Script" path="res://src/Enemy.cs" id="1_8jmi0"]
+[ext_resource type="Texture2D" uid="uid://2nu8hw34rd7p" path="res://Textury/statek_wroga.png" id="1_64bbo"]
+
+[sub_resource type="Animation" id="Animation_riqq6"]
+resource_name = "Movement_Left"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionPolygon2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(150, -30), Vector2(300, 0), Vector2(150, 30), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njyey"]
+_data = {
+"Movement_LeftRight": SubResource("Animation_riqq6")
+}
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_8jmi0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 15, 12, 3, 12, -12, -12, -12, -12, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+texture_filter = 1
+texture = ExtResource("1_64bbo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_njyey")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

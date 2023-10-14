@@ -9,7 +9,7 @@ public partial class SpecialButton : TouchScreenButton
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        stateknode = GetTree().Root.GetNode("Player/Statek");
+        stateknode = GetTree().Root.GetNode("Game/Player/Statek");
         this.Pressed += () =>
         {
             if (shootReady)

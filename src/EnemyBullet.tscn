@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://yhv8aw1565y5"]
+
+[ext_resource type="Texture2D" uid="uid://dby00qdqdehbq" path="res://Textury/pocisk_wroga.png" id="1_qr2x8"]
+[ext_resource type="Script" path="res://src/EnemyBullet.cs" id="1_yat66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5op6r"]
+size = Vector2(4, 4)
+
+[node name="EnemyBullet" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_yat66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_qr2x8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5op6r")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(0.2, 0.2)

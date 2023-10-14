@@ -11,7 +11,7 @@ public partial class ShootButton : TouchScreenButton
 	// Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        stateknode = GetTree().Root.GetNode("Player/Statek");
+        stateknode = GetTree().Root.GetNode("Game/Player/Statek");
         this.Pressed += () => shooting = true; //connect pressed signal
         this.Released += () => shooting = false; //connect released signal
     }

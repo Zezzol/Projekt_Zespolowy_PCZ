@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://6g6c45w5ebex"]
+
+[ext_resource type="Script" path="res://src/PlayerBullet.cs" id="1_5w201"]
+[ext_resource type="Texture2D" uid="uid://bj3y7m1qde4nl" path="res://Textury/pocisk.png" id="2_cq8j4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdy6q"]
+size = Vector2(4, 6)
+
+[node name="PlayerBullet" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_5w201")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_cq8j4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hdy6q")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.2, 0.3)

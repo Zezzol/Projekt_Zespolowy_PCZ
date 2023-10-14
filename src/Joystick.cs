@@ -14,7 +14,7 @@ public partial class Joystick : TouchScreenButton
     public override void _Ready()
     {
         buttonSize = new Vector2(TexturePressed.GetWidth(), TexturePressed.GetHeight());
-        stateknode = GetTree().Root.GetNode("Player/Statek");
+        stateknode = GetTree().Root.GetNode("Game/Player/Statek");
         GD.Print(stateknode.Name);
 
     }

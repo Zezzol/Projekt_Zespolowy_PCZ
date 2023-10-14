@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwjuaucj3yg5c"]
+[gd_scene load_steps=14 format=3 uid="uid://dwjuaucj3yg5c"]
 
 [ext_resource type="Script" path="res://src/Player.cs" id="1_v51tk"]
 [ext_resource type="Script" path="res://src/Statek.cs" id="2_petby"]
@@ -11,6 +11,26 @@
 [ext_resource type="Texture2D" uid="uid://bcmmog1s5wrjb" path="res://Textury/Special_rama.png" id="9_acocg"]
 [ext_resource type="Script" path="res://src/SpecialButton.cs" id="10_gab7i"]
 
+[sub_resource type="Animation" id="Animation_d7jei"]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Statek_kadlub:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41ouy"]
+_data = {
+"Hit": SubResource("Animation_d7jei")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_34081"]
 radius = 48.0
 
@@ -19,6 +39,7 @@ script = ExtResource("1_v51tk")
 
 [node name="Statek" type="CharacterBody2D" parent="."]
 position = Vector2(344, 158)
+collision_mask = 0
 script = ExtResource("2_petby")
 
 [node name="Statek_kadlub" type="Sprite2D" parent="Statek"]
@@ -27,6 +48,11 @@ texture = ExtResource("3_33jck")
 
 [node name="Statek_kolizja" type="CollisionPolygon2D" parent="Statek"]
 polygon = PackedVector2Array(15, 15, 0, -15, -15, 15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Statek"]
+libraries = {
+"": SubResource("AnimationLibrary_41ouy")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

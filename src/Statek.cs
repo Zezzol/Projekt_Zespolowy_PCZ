@@ -4,16 +4,22 @@ using System.Text.RegularExpressions;
 
 public partial class Statek : CharacterBody2D
 {
+    [Export] int hp = 10;
+    [Export] int bulletDmg = 5; //damage on shooting the player
+
     private Vector2 joysticksygnal;
     private Vector2 statekruch = Vector2.Zero;
     PackedScene pocisk;
     ShootButton przyciskDoStrzelania;
     SpecialButton przyciskDoSpeciala;
+    AnimationPlayer animacja;
     public override void _Ready()
     {
-        pocisk = (PackedScene)ResourceLoader.Load("res://src/Pocisk.tscn");
-        przyciskDoStrzelania = (ShootButton)GetTree().Root.GetNode("Player/CanvasLayer/Control/ShootButton");
-        przyciskDoSpeciala = (SpecialButton)GetTree().Root.GetNode("Player/CanvasLayer/Control/SpecialButton");
+        pocisk = (PackedScene)ResourceLoader.Load("res://src/PlayerBullet.tscn");
+        przyciskDoStrzelania = (ShootButton)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/ShootButton");
+        przyciskDoSpeciala = (SpecialButton)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/SpecialButton");
+        animacja = (AnimationPlayer)GetChild(2);
+        
     }
     public override void _PhysicsProcess(double delta)
     {
@@ -26,11 +32,13 @@ public partial class Statek : CharacterBody2D
         joysticksygnal = recivelJoystick;
     }
 
+    //shooting scripts
     public async void Shoot() //Wygeneruj pocisk, ustaw tor lotu i wystrzel
     {
-        Pocisk nowyPocisk = (Pocisk)pocisk.Instantiate();
+        PlayerBullet nowyPocisk = (PlayerBullet)pocisk.Instantiate();
         nowyPocisk.Position = new Vector2(this.Position.X, this.Position.Y - 17);
-        GetTree().Root.GetNode("Player").AddChild(nowyPocisk);
+        nowyPocisk.bulletDmg = bulletDmg;
+        GetTree().Root.GetNode("Game/Player").AddChild(nowyPocisk);
 
         await ToSignal(GetTree().CreateTimer(0.2), "timeout"); //delay beetwen shots
         przyciskDoStrzelania.shootReady = true;
@@ -38,10 +46,28 @@ public partial class Statek : CharacterBody2D
     
     public void ShootSpecial()
     {
-        Pocisk nowyPocisk = (Pocisk)pocisk.Instantiate();
+        PlayerBullet nowyPocisk = (PlayerBullet)pocisk.Instantiate();
         nowyPocisk.Position = new Vector2(this.Position.X, this.Position.Y - 17);
         nowyPocisk.Scale = new Vector2(4, 4);
-        GetTree().Root.GetNode("Player").AddChild(nowyPocisk);
+        GetTree().Root.GetNode("Game/Player").AddChild(nowyPocisk);
         przyciskDoSpeciala.shootReady = false;
+    }
+
+    //getting damaged scripts
+    public async void Hit(int dmg)
+    {
+        hp -= dmg;
+
+        if (hp <= 0) GameOver(); //lose the game
+        else
+        {
+            animacja.Play("Hit");
+            await ToSignal(animacja, "animation_finished");
+        }
+    }
+
+    public void GameOver()
+    {
+        GD.Print("Ded");
     }
 }

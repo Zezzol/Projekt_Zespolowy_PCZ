@@ -1,12 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://di7s0psjgbrxt"]
+[gd_scene load_steps=4 format=3 uid="uid://di7s0psjgbrxt"]
 
+[ext_resource type="Script" path="res://src/Game.cs" id="1_s10kq"]
 [ext_resource type="PackedScene" uid="uid://dwjuaucj3yg5c" path="res://src/Player.tscn" id="1_y8h3s"]
 [ext_resource type="PackedScene" uid="uid://b8xgxqrdh2fcb" path="res://src/Enemy.tscn" id="2_pa0l6"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_s10kq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -11.5
+offset_right = 47.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = 11.0
+offset_right = 37.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
 
 [node name="Player" parent="." instance=ExtResource("1_y8h3s")]
 position = Vector2(-0.204506, 0.125)
 
 [node name="Enemy" parent="." instance=ExtResource("2_pa0l6")]
 position = Vector2(272, 59)
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

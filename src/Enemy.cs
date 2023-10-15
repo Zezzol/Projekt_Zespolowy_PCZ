@@ -5,7 +5,7 @@ public partial class Enemy : Area2D
 {
     [Export] int hp = 10;
     [Export] int contactDmg = 10; //damage on direct contact with the player
-    [Export] int bulletDmg = 5; //damage on shooting the player
+    [Export] int bulletDmg = 100; //damage on shooting the player
     PackedScene bullet;
     AnimationPlayer animacja;
 
@@ -45,6 +45,7 @@ public partial class Enemy : Area2D
         EnemyBullet newBullet = (EnemyBullet)bullet.Instantiate();
         Vector2 newPosition = new Vector2((GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.X, (GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.Y + 17); //get global position of interpolated node
         newBullet.Position = newPosition;
+        newBullet.bulletDmg = bulletDmg;
         GetTree().Root.GetNode("Game").AddChild(newBullet);
 
         await ToSignal(GetTree().CreateTimer(1), "timeout"); //delay beetwen shots
@@ -53,12 +54,17 @@ public partial class Enemy : Area2D
 
     private void _on_body_entered(Node body) //connect body entered signal
     {
-        if (body is Statek statek) statek.Hit(contactDmg);
-        else if (body is PlayerBullet playerBullet)
+        if (body is PlayerBullet playerBullet)
         {
-            Hit(playerBullet.bulletDmg);
+            Hit(playerBullet.bulletDmg); //bullet dmg
             body.QueueFree(); //delete bullet after contact
         }
+    }
+
+    private void _on_area_entered(Area2D area) //connect body entered signal
+    {
+        if (area is Statek statek) statek.Hit(contactDmg); //contact dmg with ship
+        //dziala tylko jak player wleci w statek, wiec teoretycznie moze w niego wleciec i siedziec tam przez caly czas, a otrzyma obrazenia tylko raz
     }
 
     public void Hit(int dmg) //take damage

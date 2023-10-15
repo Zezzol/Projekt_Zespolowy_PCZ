@@ -4,6 +4,7 @@ using System;
 public partial class EnemyBullet : CharacterBody2D
 {
     public Vector2 tor_lotu = Vector2.Zero;
+    public int bulletDmg = 0;
     VisibleOnScreenNotifier2D VisibilityNotifier;
 
     // Called when the node enters the scene tree for the first time.

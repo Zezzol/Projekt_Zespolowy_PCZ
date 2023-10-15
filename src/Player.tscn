@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwjuaucj3yg5c"]
+[gd_scene load_steps=13 format=3 uid="uid://dwjuaucj3yg5c"]
 
-[ext_resource type="Script" path="res://src/Player.cs" id="1_v51tk"]
 [ext_resource type="Script" path="res://src/Statek.cs" id="2_petby"]
 [ext_resource type="Texture2D" uid="uid://dht5teq5df1dt" path="res://Textury/statek.png" id="3_33jck"]
 [ext_resource type="Texture2D" uid="uid://bsxixvv4x455t" path="res://Textury/Joystick_rama.png" id="4_5jnm5"]
@@ -35,11 +34,10 @@ _data = {
 radius = 48.0
 
 [node name="Player" type="Node2D"]
-script = ExtResource("1_v51tk")
 
-[node name="Statek" type="CharacterBody2D" parent="."]
+[node name="Statek" type="Area2D" parent="."]
 position = Vector2(344, 158)
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("2_petby")
 
 [node name="Statek_kadlub" type="Sprite2D" parent="Statek"]
@@ -95,3 +93,24 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("9_acocg")
 texture_pressed = ExtResource("7_d1xex")
 script = ExtResource("10_gab7i")
+
+[node name="HPBar" type="ProgressBar" parent="CanvasLayer/Control"]
+modulate = Color(0, 0.870588, 0.380392, 1)
+offset_left = 18.0
+offset_top = -243.0
+offset_right = 37.0
+offset_bottom = -133.0
+step = 1.0
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -268.0
+offset_right = 41.0
+offset_bottom = -245.0
+text = "HP"
+
+[connection signal="body_entered" from="Statek" to="Statek" method="_on_body_entered"]

@@ -2,22 +2,26 @@ using Godot;
 using System;
 using System.Text.RegularExpressions;
 
-public partial class Statek : CharacterBody2D
+public partial class Statek : Area2D
 {
-    [Export] int hp = 10;
+    [Export] int hp = 100;
     [Export] int bulletDmg = 5; //damage on shooting the player
+
+    private bool iframes = false; //invincibility
 
     private Vector2 joysticksygnal;
     private Vector2 statekruch = Vector2.Zero;
     PackedScene pocisk;
     ShootButton przyciskDoStrzelania;
     SpecialButton przyciskDoSpeciala;
+    ProgressBar hpBar;
     AnimationPlayer animacja;
     public override void _Ready()
     {
         pocisk = (PackedScene)ResourceLoader.Load("res://src/PlayerBullet.tscn");
         przyciskDoStrzelania = (ShootButton)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/ShootButton");
         przyciskDoSpeciala = (SpecialButton)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/SpecialButton");
+        hpBar = (ProgressBar)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/HPBar");
         animacja = (AnimationPlayer)GetChild(2);
         
     }
@@ -25,7 +29,8 @@ public partial class Statek : CharacterBody2D
     {
         statekruch.X = (float)((joysticksygnal.X * 100) * delta); //make speed indepentend from fps
         statekruch.Y = (float)((joysticksygnal.Y * 100) * delta);
-        MoveAndCollide(statekruch);
+
+        if(statekruch != Vector2.Zero) Position += statekruch;
     }
     private void ReciveJoystick(Vector2 recivelJoystick)
     {
@@ -53,21 +58,37 @@ public partial class Statek : CharacterBody2D
         przyciskDoSpeciala.shootReady = false;
     }
 
-    //getting damaged scripts
-    public async void Hit(int dmg)
+    //on getting hit by bullet
+    private void _on_body_entered(Node body) //connect body entered signal
     {
-        hp -= dmg;
-
-        if (hp <= 0) GameOver(); //lose the game
-        else
+        if (body is EnemyBullet enemyBullet)
         {
-            animacja.Play("Hit");
-            await ToSignal(animacja, "animation_finished");
+            Hit(enemyBullet.bulletDmg);
+            body.QueueFree(); //delete bullet after contact
         }
     }
 
-    public void GameOver()
+    //getting damaged scripts
+    public async void Hit(int dmg)
     {
-        GD.Print("Ded");
+        if (!iframes)
+        {
+            iframes = true;
+            hp -= dmg;
+            hpBar.Value = hp;
+
+            if (hp <= 0) GetTree().Root.GetNode("Game").Call("GameOver"); //lose the game
+            else
+            {
+                animacja.Play("Hit");
+                await ToSignal(animacja, "animation_finished");
+                iframes = false;
+            }
+        }
+    }
+
+    public void DisableProcessMode()
+    {
+        GetParent().ProcessMode = ProcessModeEnum.Disabled;
     }
 }

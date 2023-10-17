@@ -8,6 +8,7 @@ public partial class Enemy : Area2D
     [Export] int bulletDmg = 100; //damage on shooting the player
     PackedScene bullet;
     AnimationPlayer animacja;
+    String animationName;
 
     bool shootReady = true;
     bool inAnimation = false;
@@ -16,6 +17,18 @@ public partial class Enemy : Area2D
     {
         bullet = (PackedScene)ResourceLoader.Load("res://src/EnemyBullet.tscn");
         animacja = (AnimationPlayer)GetChild(1);
+
+        if (this.Position.X >= 324) //ustaw odpowiednia animacje, zeby przeciwnik nie wylecial poza pole gry
+        {
+            animationName = "Movement_RightLeft";
+        }
+        else
+        {
+            animationName = "Movement_LeftRight";
+        }
+
+        Tween t = GetTree().CreateTween();
+        t.TweenProperty(this, "position", new Vector2(this.Position.X, this.Position.Y + 100), 1).SetTrans(Tween.TransitionType.Sine); //animacja wlotu na pole gry
     }
 
     public override void _PhysicsProcess(double delta)
@@ -27,14 +40,14 @@ public partial class Enemy : Area2D
 
         if (!inAnimation)
         {
-            PlayMoveAnimation();
+           PlayMoveAnimation(animationName);
         }
     }
 
-    public async void PlayMoveAnimation()
+    public async void PlayMoveAnimation(String animationName)
     {
         inAnimation = true;
-        animacja.Play("Movement_LeftRight");
+        animacja.Play(animationName);
         await ToSignal(animacja, "animation_finished");
         inAnimation = false;
     }

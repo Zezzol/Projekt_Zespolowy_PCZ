@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d034t6ks3nq7h"]
+
+[ext_resource type="Script" path="res://src/Wave.cs" id="1_etprr"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_etprr")

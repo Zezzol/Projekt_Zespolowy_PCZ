@@ -87,8 +87,9 @@ public partial class Statek : Area2D
         }
     }
 
-    public void DisableProcessMode()
+    public void ChangeProcessMode()
     {
-        GetParent().ProcessMode = ProcessModeEnum.Disabled;
+        if (GetParent().ProcessMode == ProcessModeEnum.Disabled) GetParent().ProcessMode = ProcessModeEnum.Inherit;
+        else GetParent().ProcessMode = ProcessModeEnum.Disabled;
     }
 }

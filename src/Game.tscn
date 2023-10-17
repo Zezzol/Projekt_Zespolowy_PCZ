@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://src/Game.cs" id="1_s10kq"]
 [ext_resource type="PackedScene" uid="uid://dwjuaucj3yg5c" path="res://src/Player.tscn" id="1_y8h3s"]
-[ext_resource type="PackedScene" uid="uid://b8xgxqrdh2fcb" path="res://src/Enemy.tscn" id="2_pa0l6"]
+[ext_resource type="PackedScene" uid="uid://d034t6ks3nq7h" path="res://src/Wave.tscn" id="3_bf7m7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_s10kq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -50,10 +50,50 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "RESTART"
 
+[node name="GameStart" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameStart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ZACZNIJ GRE"
+
+[node name="StartButton" type="Button" parent="CanvasLayer/GameStart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = 14.0
+offset_right = 27.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
 [node name="Player" parent="." instance=ExtResource("1_y8h3s")]
+process_mode = 4
 position = Vector2(-0.204506, 0.125)
 
-[node name="Enemy" parent="." instance=ExtResource("2_pa0l6")]
-position = Vector2(272, 59)
+[node name="Wave" parent="." instance=ExtResource("3_bf7m7")]
+position = Vector2(1, 0)
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameStart/StartButton" to="." method="_on_StartButton_pressed"]

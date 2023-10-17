@@ -96,6 +96,7 @@ script = ExtResource("10_gab7i")
 
 [node name="HPBar" type="ProgressBar" parent="CanvasLayer/Control"]
 modulate = Color(0, 0.870588, 0.380392, 1)
+layout_mode = 0
 offset_left = 18.0
 offset_top = -243.0
 offset_right = 37.0

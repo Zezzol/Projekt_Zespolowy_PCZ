@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnhhl3n1rqpea"]
+
+[ext_resource type="Script" path="res://src/UpgradeWeapon.cs" id="1_8u1v4"]
+[ext_resource type="Texture2D" uid="uid://bcpb4uad30nga" path="res://Textury/Animacje/Drop/drop1.png" id="1_ilu4s"]
+[ext_resource type="Texture2D" uid="uid://di3y0ks5xkwwh" path="res://Textury/Animacje/Drop/drop2.png" id="2_q7bre"]
+[ext_resource type="Texture2D" uid="uid://drhwtbbys515q" path="res://Textury/Animacje/Drop/drop3.png" id="3_1npij"]
+[ext_resource type="Texture2D" uid="uid://lblbacexdnoc" path="res://Textury/Animacje/Drop/drop4.png" id="4_st3vl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5etiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ilu4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q7bre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1npij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_st3vl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="UpgradeWeapon" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_8u1v4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_5etiw")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.796494
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(9, 0, 0, -11, -9, 0, 0, 11)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

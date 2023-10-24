@@ -7,6 +7,7 @@ public partial class Enemy : Area2D
     [Export] int contactDmg = 10; //damage on direct contact with the player
     [Export] int bulletDmg = 100; //damage on shooting the player
     PackedScene bullet;
+    PackedScene drop;
     AnimationPlayer animacja;
     String animationName;
 
@@ -16,6 +17,7 @@ public partial class Enemy : Area2D
     public override void _Ready()
     {
         bullet = (PackedScene)ResourceLoader.Load("res://src/EnemyBullet.tscn");
+        drop = (PackedScene)ResourceLoader.Load("res://src/UpgradeWeapon.tscn");
         animacja = (AnimationPlayer)GetChild(1);
 
         if (this.Position.X >= 324) //ustaw odpowiednia animacje, zeby przeciwnik nie wylecial poza pole gry
@@ -69,7 +71,8 @@ public partial class Enemy : Area2D
     {
         if (body is PlayerBullet playerBullet)
         {
-            Hit(playerBullet.bulletDmg); //bullet dmg
+            Hit(playerBullet.bulletDmg); //bullet dmg       
+
             body.QueueFree(); //delete bullet after contact
         }
     }
@@ -87,6 +90,17 @@ public partial class Enemy : Area2D
         if(hp <= 0)
         {
             this.Visible = false;
+
+            Random rnd = new Random();
+            int random = rnd.Next(5); //szansa 20%
+
+            if (random == 0)
+            {
+                UpgradeWeapon uw = (UpgradeWeapon)drop.Instantiate();
+                uw.Position = new Vector2((GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.X, (GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.Y + 17);
+                GetTree().Root.GetNode("Game").CallDeferred("add_child", uw);
+            }
+
             this.QueueFree(); //delete after hp = 0
         }
     }

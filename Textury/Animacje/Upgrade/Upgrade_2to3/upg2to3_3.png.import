@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hiia28ia4d7m"
-path="res://.godot/imported/wybuch_1.png-71ce119206d6ff1ab32c443cc84c94b4.ctex"
+uid="uid://c810evxhuu5mb"
+path="res://.godot/imported/upg2to3_3.png-691a9a67e61f20c7b9f5b24abc650542.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textury/Animacje/Wybuch_Alt/wybuch_1.png"
-dest_files=["res://.godot/imported/wybuch_1.png-71ce119206d6ff1ab32c443cc84c94b4.ctex"]
+source_file="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_3.png"
+dest_files=["res://.godot/imported/upg2to3_3.png-691a9a67e61f20c7b9f5b24abc650542.ctex"]
 
 [params]
 

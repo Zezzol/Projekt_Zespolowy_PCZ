@@ -4,7 +4,8 @@ using System.Text.RegularExpressions;
 
 public partial class Statek : Area2D
 {
-    [Export] int hp = 100;
+    [Export] public int maksHp = 100;
+    [Export] public int hp = 100;
     [Export] int bulletDmg = 5; //damage on shooting the player
 
     private bool iframes = false; //invincibility
@@ -14,7 +15,7 @@ public partial class Statek : Area2D
     PackedScene pocisk;
     ShootButton przyciskDoStrzelania;
     SpecialButton przyciskDoSpeciala;
-    ProgressBar hpBar;
+    public ProgressBar hpBar;
     AnimationPlayer animacja;
     public override void _Ready()
     {

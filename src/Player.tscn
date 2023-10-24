@@ -1,14 +1,93 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwjuaucj3yg5c"]
+[gd_scene load_steps=26 format=3 uid="uid://dwjuaucj3yg5c"]
 
 [ext_resource type="Script" path="res://src/Statek.cs" id="2_petby"]
 [ext_resource type="Texture2D" uid="uid://dht5teq5df1dt" path="res://Textury/statek.png" id="3_33jck"]
+[ext_resource type="Texture2D" uid="uid://bawn7032qsl0t" path="res://Textury/Animacje/Upgrade/Upgrade_1to2/upg1to2_1.png" id="3_rg25f"]
 [ext_resource type="Texture2D" uid="uid://bsxixvv4x455t" path="res://Textury/Joystick_rama.png" id="4_5jnm5"]
+[ext_resource type="Texture2D" uid="uid://bfi1f1a1f0w2w" path="res://Textury/Animacje/Upgrade/Upgrade_1to2/upg1to2_2.png" id="4_hdsre"]
+[ext_resource type="Texture2D" uid="uid://d4ji16tiwa4ov" path="res://Textury/Animacje/Upgrade/Upgrade_1to2/upg1to2_3.png" id="5_6fliy"]
 [ext_resource type="Texture2D" uid="uid://dwytqom07jcck" path="res://Textury/Joystick_srodek.png" id="5_v3yia"]
+[ext_resource type="Texture2D" uid="uid://imprsb656d8e" path="res://Textury/Animacje/Upgrade/Upgrade_1to2/upg1to2_4.png" id="6_inea1"]
 [ext_resource type="Script" path="res://src/Joystick.cs" id="6_oje3r"]
 [ext_resource type="Texture2D" uid="uid://dj5n7eidx2kp2" path="res://Textury/przycisk_pressed.png" id="7_d1xex"]
+[ext_resource type="Texture2D" uid="uid://t3oymc7gki84" path="res://Textury/Animacje/Upgrade/Upgrade_1to2/upg1to2_5.png" id="7_lyi3h"]
+[ext_resource type="Texture2D" uid="uid://dml7jngg6lfw8" path="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_1.png" id="8_4pv4w"]
 [ext_resource type="Script" path="res://src/ShootButton.cs" id="8_a3rms"]
 [ext_resource type="Texture2D" uid="uid://bcmmog1s5wrjb" path="res://Textury/Special_rama.png" id="9_acocg"]
+[ext_resource type="Texture2D" uid="uid://3cmhrdrvnqek" path="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_2.png" id="9_dn8n3"]
 [ext_resource type="Script" path="res://src/SpecialButton.cs" id="10_gab7i"]
+[ext_resource type="Texture2D" uid="uid://ckuksdsa45gcg" path="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_3.png" id="10_yjy8t"]
+[ext_resource type="Texture2D" uid="uid://p1er4ybcry8g" path="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_4.png" id="11_y826f"]
+[ext_resource type="Texture2D" uid="uid://hpommgaxa2r1" path="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_5.png" id="12_ljagj"]
+[ext_resource type="Texture2D" uid="uid://e4ws4rwwa7ab" path="res://Textury/statek_lvl2.png" id="13_k188s"]
+[ext_resource type="Texture2D" uid="uid://fqhkxg8cq5ol" path="res://Textury/statek_lvl3.png" id="14_tlda8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fk6jf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_33jck")
+}],
+"loop": true,
+"name": &"first_stage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rg25f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hdsre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6fliy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_inea1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lyi3h")
+}],
+"loop": false,
+"name": &"level_up1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4pv4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dn8n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yjy8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y826f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ljagj")
+}],
+"loop": false,
+"name": &"level_up2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_k188s")
+}],
+"loop": true,
+"name": &"second_stage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_tlda8")
+}],
+"loop": true,
+"name": &"third_stage",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_d7jei"]
 resource_name = "Hit"
@@ -40,9 +119,11 @@ position = Vector2(344, 158)
 collision_mask = 8
 script = ExtResource("2_petby")
 
-[node name="Statek_kadlub" type="Sprite2D" parent="Statek"]
+[node name="Statek_kadlub" type="AnimatedSprite2D" parent="Statek"]
 texture_filter = 1
-texture = ExtResource("3_33jck")
+sprite_frames = SubResource("SpriteFrames_fk6jf")
+animation = &"level_up2"
+autoplay = "first_stage"
 
 [node name="Statek_kolizja" type="CollisionPolygon2D" parent="Statek"]
 polygon = PackedVector2Array(15, 15, 0, -15, -15, 15)

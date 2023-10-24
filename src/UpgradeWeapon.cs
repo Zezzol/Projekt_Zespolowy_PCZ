@@ -32,6 +32,14 @@ public partial class UpgradeWeapon : Node2D
 				statek.hpBar.MaxValue = statek.maksHp;
 				statek.hpBar.Value = statek.hp;
             }
+			else
+			{
+				if (statek.liczbaPociskow < 3)
+				{
+					statek.liczbaPociskow++;
+					statek.Upgrade();
+				}
+			}
 
 			this.QueueFree();
         }

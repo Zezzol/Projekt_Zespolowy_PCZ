@@ -34,11 +34,7 @@ public partial class Statek : Area2D
         
         statekruch.X = (float)((joysticksygnal.X * 100) * delta); //make speed indepentend from fps
         statekruch.Y = (float)((joysticksygnal.Y * 100) * delta);
-        float screenWidth = GetViewportRect().Size.X;
-        float screenHeight = GetViewportRect().Size.Y;
 
-        Console.WriteLine($"{screenWidth} {screenHeight}");
-        
         if(Position.X >= GetViewportRect().Size.X)
         {
             Position = new Vector2(Position.X - 1, Position.Y);
@@ -56,7 +52,6 @@ public partial class Statek : Area2D
             Position = new Vector2(Position.X, Position.Y + 1);
         }
         if (statekruch != Vector2.Zero) Position += statekruch;
-        Console.WriteLine($"{Position}");
     }
     private void ReciveJoystick(Vector2 recivelJoystick)
     {

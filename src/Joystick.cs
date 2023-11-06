@@ -15,7 +15,6 @@ public partial class Joystick : TouchScreenButton
     {
         buttonSize = new Vector2(TexturePressed.GetWidth(), TexturePressed.GetHeight());
         stateknode = GetTree().Root.GetNode("Game/Player/Statek");
-        GD.Print(stateknode.Name);
 
     }
     public override void _Process(double delta)
@@ -47,7 +46,6 @@ public partial class Joystick : TouchScreenButton
          
             if (Position.Length()  > granica)
             {
-                Console.WriteLine(Position.Normalized() * granica);
                 Position=(Position.Normalized()) * granica;
             }
         }

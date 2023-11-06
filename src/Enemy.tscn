@@ -49,7 +49,7 @@ script = ExtResource("1_8jmi0")
 bulletDmg = 50
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 15, 12, 3, 12, -12, -12, -12, -12, 3)
+polygon = PackedVector2Array(0, 15, 15, 1, 15, -12, -15, -12, -15, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
 texture_filter = 1

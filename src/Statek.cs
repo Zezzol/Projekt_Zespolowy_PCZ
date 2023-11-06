@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 
 public partial class Statek : Area2D
 {
+    [Export] public int punkty = 0;
     [Export] public int maksHp = 100;
     [Export] public int hp = 100;
     [Export] int bulletDmg = 5; //damage on shooting the player
@@ -31,16 +32,33 @@ public partial class Statek : Area2D
     }
     public override void _PhysicsProcess(double delta)
     {
+        
         statekruch.X = (float)((joysticksygnal.X * 100) * delta); //make speed indepentend from fps
         statekruch.Y = (float)((joysticksygnal.Y * 100) * delta);
 
-        if(statekruch != Vector2.Zero) Position += statekruch;
+        if(Position.X >= GetViewportRect().Size.X)
+        {
+            Position = new Vector2(Position.X - 1, Position.Y);
+        }
+        if (Position.Y >= GetViewportRect().Size.Y)
+        {
+            Position = new Vector2(Position.X, Position.Y - 1);
+        }
+        if (Position.X <= 0)
+        {
+            Position = new Vector2(Position.X + 1, Position.Y);
+        }
+        if (Position.Y <= 0)
+        {
+            Position = new Vector2(Position.X, Position.Y + 1);
+        }
+        if (statekruch != Vector2.Zero) Position += statekruch;
     }
     private void ReciveJoystick(Vector2 recivelJoystick)
     {
         joysticksygnal = recivelJoystick;
     }
-
+    
     //shooting scripts
     public async void Shoot() //Wygeneruj pocisk, ustaw tor lotu i wystrzel
     {

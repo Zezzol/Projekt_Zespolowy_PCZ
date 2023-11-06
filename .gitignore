@@ -9,3 +9,5 @@ android/
 *projekt grupowy.metadata.v7.bin
 *futdcache.v2
 debug.keystore
+*.vsidx
+*.vsidx

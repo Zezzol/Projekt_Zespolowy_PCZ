@@ -10,12 +10,15 @@ public partial class Enemy : Area2D
     PackedScene drop;
     AnimationPlayer animacja;
     String animationName;
-
+    Statek statek;
+    Label label2;
     bool shootReady = true;
     bool inAnimation = false;
 
     public override void _Ready()
     {
+        label2 = (Label)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/Label2");
+        statek = (Statek)GetTree().Root.GetNode("Game/Player/Statek");
         bullet = (PackedScene)ResourceLoader.Load("res://src/EnemyBullet.tscn");
         drop = (PackedScene)ResourceLoader.Load("res://src/UpgradeWeapon.tscn");
         animacja = (AnimationPlayer)GetChild(1);
@@ -82,7 +85,11 @@ public partial class Enemy : Area2D
         if (area is Statek statek) statek.Hit(contactDmg); //contact dmg with ship
         //dziala tylko jak player wleci w statek, wiec teoretycznie moze w niego wleciec i siedziec tam przez caly czas, a otrzyma obrazenia tylko raz
     }
-
+    public void UpdateScore()
+    {
+        statek.punkty += 100;
+        label2.Text = $"Punkty: {statek.punkty}";
+    }
     public void Hit(int dmg) //take damage
     {
         hp -= dmg;
@@ -99,8 +106,9 @@ public partial class Enemy : Area2D
                 UpgradeWeapon uw = (UpgradeWeapon)drop.Instantiate();
                 uw.Position = new Vector2((GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.X, (GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.Y + 17);
                 GetTree().Root.GetNode("Game").CallDeferred("add_child", uw);
-            }
 
+            }
+            UpdateScore();
             this.QueueFree(); //delete after hp = 0
         }
     }

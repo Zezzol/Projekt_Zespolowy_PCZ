@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 
 public partial class Statek : Area2D
 {
+    [Export] public int punkty = 0;
     [Export] public int maksHp = 100;
     [Export] public int hp = 100;
     [Export] int bulletDmg = 5; //damage on shooting the player
@@ -57,7 +58,7 @@ public partial class Statek : Area2D
     {
         joysticksygnal = recivelJoystick;
     }
-
+    
     //shooting scripts
     public async void Shoot() //Wygeneruj pocisk, ustaw tor lotu i wystrzel
     {

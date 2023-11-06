@@ -195,4 +195,12 @@ offset_right = 41.0
 offset_bottom = -245.0
 text = "HP"
 
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 539.0
+offset_top = -267.0
+offset_right = 645.0
+offset_bottom = -244.0
+text = "Punkty: 0"
+
 [connection signal="body_entered" from="Statek" to="Statek" method="_on_body_entered"]

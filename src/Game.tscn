@@ -50,6 +50,37 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "RESTART"
 
+[node name="Score" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -54.0
+offset_right = 81.5
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Brawo! Nowy rekord!"
+
+[node name="highScore" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -34.0
+offset_right = 36.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rekord: 0"
+
 [node name="GameStart" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15

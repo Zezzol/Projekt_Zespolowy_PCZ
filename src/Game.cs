@@ -4,13 +4,23 @@ using System;
 public partial class Game : Node2D
 {
 	[Export] public int wave = 0; //numer fali i liczba przeciwnikow
+	public int highScore = 0;
 
 	PackedScene waveScene;
 	Wave fala;
 
 	public override void _Ready()
 	{
-		waveScene = (PackedScene)ResourceLoader.Load("res://src/Wave.tscn");
+        if (FileAccess.FileExists("user://save.txt"))
+        {
+            var save = FileAccess.Open("user://save.txt", FileAccess.ModeFlags.Read);
+			var x = save.GetLine();
+			highScore = x.ToInt();
+            GD.Print(highScore);
+			save.Close();
+        }
+
+        waveScene = (PackedScene)ResourceLoader.Load("res://src/Wave.tscn");
 		fala = (Wave)GetTree().Root.GetNode("Game/Wave");
 		fala.ProcessMode = ProcessModeEnum.Disabled;
     }
@@ -24,9 +34,29 @@ public partial class Game : Node2D
 	public void GameOver() //game over, wylacz sterowanie graczowi
 	{
 		Control c = (Control)GetChild(0).GetChild(0);
-		c.Show();
+		Label score = (Label)c.GetChild(2);
+        Label score2 = (Label)c.GetChild(3);
 
-		Node2D player = (Node2D)GetChild(1);
+        Statek statek = (Statek)GetNode("Player").GetChild(0);
+
+        if (statek.punkty > highScore)
+		{
+			highScore = statek.punkty;
+			score.Visible = true;
+
+            var save = FileAccess.Open("user://save.txt", FileAccess.ModeFlags.Write);
+            save.StoreLine(highScore.ToString());
+            save.Close();
+        }
+		else
+		{
+            score.Visible = false;
+        }
+        score2.Text = "Rekord: " + highScore;
+
+        c.Show();
+
+        Node2D player = (Node2D)GetChild(1);
 		player.Hide();
 		player.GetChild(0).CallDeferred("ChangeProcessMode");
 	}

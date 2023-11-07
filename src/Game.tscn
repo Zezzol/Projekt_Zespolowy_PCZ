@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://di7s0psjgbrxt"]
+[gd_scene load_steps=5 format=3 uid="uid://di7s0psjgbrxt"]
 
 [ext_resource type="Script" path="res://src/Game.cs" id="1_s10kq"]
 [ext_resource type="PackedScene" uid="uid://dwjuaucj3yg5c" path="res://src/Player.tscn" id="1_y8h3s"]
+[ext_resource type="Texture2D" uid="uid://cmqg0n220lkkw" path="res://Textury/start_text.png" id="2_5hrwm"]
 [ext_resource type="PackedScene" uid="uid://d034t6ks3nq7h" path="res://src/Wave.tscn" id="3_bf7m7"]
 
 [node name="Game" type="Node2D"]
@@ -90,6 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/GameStart"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,6 +120,12 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "START"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GameStart"]
+texture_filter = 1
+position = Vector2(332, 115)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_5hrwm")
 
 [node name="Player" parent="." instance=ExtResource("1_y8h3s")]
 process_mode = 4

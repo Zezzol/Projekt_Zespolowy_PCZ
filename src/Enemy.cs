@@ -3,15 +3,20 @@ using System;
 
 public partial class Enemy : Area2D
 {
+    [Signal]
+    public delegate void EnemyKilledEventHandler(); //enemy killed signal
+
     [Export] int hp = 10;
     [Export] int contactDmg = 10; //damage on direct contact with the player
     [Export] int bulletDmg = 100; //damage on shooting the player
     PackedScene bullet;
     PackedScene drop;
     AnimationPlayer animacja;
+    AnimatedSprite2D wybuch;
     String animationName;
     Statek statek;
     Label label2;
+    Sprite2D sprite;
     bool shootReady = true;
     bool inAnimation = false;
 
@@ -22,6 +27,10 @@ public partial class Enemy : Area2D
         bullet = (PackedScene)ResourceLoader.Load("res://src/EnemyBullet.tscn");
         drop = (PackedScene)ResourceLoader.Load("res://src/UpgradeWeapon.tscn");
         animacja = (AnimationPlayer)GetChild(1);
+        wybuch = (AnimatedSprite2D)GetChild(0).GetChild(1);
+        sprite = (Sprite2D)GetChild(0).GetChild(0);
+
+        Connect(SignalName.EnemyKilled, new Callable(statek, Statek.MethodName._on_EnemyKilled)); //connect signal
 
         if (this.Position.X >= 324) //ustaw odpowiednia animacje, zeby przeciwnik nie wylecial poza pole gry
         {
@@ -59,22 +68,25 @@ public partial class Enemy : Area2D
 
     public async void Shoot() //spawn bullet
     {
-        shootReady = false;
-        EnemyBullet newBullet = (EnemyBullet)bullet.Instantiate();
-        Vector2 newPosition = new Vector2((GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.X, (GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.Y + 17); //get global position of interpolated node
-        newBullet.Position = newPosition;
-        newBullet.bulletDmg = bulletDmg;
-        GetTree().Root.GetNode("Game").AddChild(newBullet);
+        if (sprite.Visible == true)
+        {
+            shootReady = false;
+            EnemyBullet newBullet = (EnemyBullet)bullet.Instantiate();
+            Vector2 newPosition = new Vector2((GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.X, (GetNode("CollisionPolygon2D") as Node2D).GlobalPosition.Y + 17); //get global position of interpolated node
+            newBullet.Position = newPosition;
+            newBullet.bulletDmg = bulletDmg;
+            GetTree().Root.GetNode("Game").AddChild(newBullet);
 
-        await ToSignal(GetTree().CreateTimer(1), "timeout"); //delay beetwen shots
-        shootReady = true;
+            await ToSignal(GetTree().CreateTimer(1), "timeout"); //delay beetwen shots
+            shootReady = true;
+        }
     }
 
     private void _on_body_entered(Node body) //connect body entered signal
     {
         if (body is PlayerBullet playerBullet)
         {
-            Hit(playerBullet.bulletDmg); //bullet dmg       
+            Hit(playerBullet.bulletDmg); //bullet dmg
 
             body.QueueFree(); //delete bullet after contact
         }
@@ -90,12 +102,22 @@ public partial class Enemy : Area2D
         statek.punkty += 100;
         label2.Text = $"Punkty: {statek.punkty}";
     }
-    public void Hit(int dmg) //take damage
+    public async void Hit(int dmg) //take damage
     {
         hp -= dmg;
 
         if(hp <= 0)
         {
+            sprite.Visible = false;
+
+            animacja.Pause();
+
+            wybuch.Visible = true;
+            wybuch.Play();
+            await ToSignal(wybuch, "animation_finished");
+
+            EmitSignal(SignalName.EnemyKilled); //emit enemy killed signal
+
             this.Visible = false;
 
             Random rnd = new Random();

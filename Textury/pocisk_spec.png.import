@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1u3uio06hy0j"
-path="res://.godot/imported/hp3-5.png-9b284613a6e38dbad5df4bc680458db7.ctex"
+uid="uid://f1snlrrswevf"
+path="res://.godot/imported/pocisk_spec.png-7676f089b0fc922be6beb7c0c981407e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textury/Animacje/HP/hp3-5.png"
-dest_files=["res://.godot/imported/hp3-5.png-9b284613a6e38dbad5df4bc680458db7.ctex"]
+source_file="res://Textury/pocisk_spec.png"
+dest_files=["res://.godot/imported/pocisk_spec.png-7676f089b0fc922be6beb7c0c981407e.ctex"]
 
 [params]
 

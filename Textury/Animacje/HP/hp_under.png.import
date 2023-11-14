@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br5qsln1g551v"
-path="res://.godot/imported/hp2.png-f28607fe807a026d2155a1a1d4683887.ctex"
+uid="uid://bymuo47s7kobu"
+path="res://.godot/imported/hp_under.png-a8896ce5d67d101899c17f837b9f69ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textury/Animacje/HP/hp2.png"
-dest_files=["res://.godot/imported/hp2.png-f28607fe807a026d2155a1a1d4683887.ctex"]
+source_file="res://Textury/Animacje/HP/hp_under.png"
+dest_files=["res://.godot/imported/hp_under.png-a8896ce5d67d101899c17f837b9f69ca.ctex"]
 
 [params]
 

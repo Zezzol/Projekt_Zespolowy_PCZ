@@ -17,8 +17,8 @@ public partial class Statek : Area2D
     PackedScene pocisk;
     ShootButton przyciskDoStrzelania;
     SpecialButton przyciskDoSpeciala;
-    public ProgressBar hpBar;
-    AnimationPlayer animacja;
+    public TextureProgressBar hpBar;
+    public AnimationPlayer animacja;
     AnimatedSprite2D sprite;
 
     public override void _Ready()
@@ -26,7 +26,7 @@ public partial class Statek : Area2D
         pocisk = (PackedScene)ResourceLoader.Load("res://src/PlayerBullet.tscn");
         przyciskDoStrzelania = (ShootButton)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/ShootButton");
         przyciskDoSpeciala = (SpecialButton)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/SpecialButton");
-        hpBar = (ProgressBar)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/HPBar");
+        hpBar = (TextureProgressBar)GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/HPBar");
         animacja = (AnimationPlayer)GetChild(2);
         sprite = (AnimatedSprite2D)GetTree().Root.GetNode("Game/Player/Statek/Statek_kadlub");
     }
@@ -116,8 +116,9 @@ public partial class Statek : Area2D
         PlayerBullet nowyPocisk = (PlayerBullet)pocisk.Instantiate();
         nowyPocisk.Position = new Vector2(this.Position.X, this.Position.Y - 17);
         nowyPocisk.Scale = new Vector2(4, 4);
+        nowyPocisk.bulletDmg = 100;
+        nowyPocisk.speed = -150;
         GetTree().Root.GetNode("Game/Player").AddChild(nowyPocisk);
-        przyciskDoSpeciala.shootReady = false;
     }
 
     //on getting hit by bullet
@@ -137,7 +138,9 @@ public partial class Statek : Area2D
         {
             iframes = true;
             hp -= dmg;
-            hpBar.Value = hp;
+
+            Tween t = CreateTween();
+            t.TweenProperty(GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/HPBar"), "value", hp, 0.2f);
 
             if (hp <= 0) GetTree().Root.GetNode("Game").Call("GameOver"); //lose the game
             else
@@ -169,5 +172,30 @@ public partial class Statek : Area2D
             await ToSignal(sprite, "animation_finished");
             sprite.Play("third_stage");
         }
+    }
+
+    public void _on_EnemyKilled()
+    {
+        GD.Print(przyciskDoSpeciala.enemyCount);
+        if (przyciskDoSpeciala.enemyCount != przyciskDoSpeciala.enemyCountRequired)
+        {
+            przyciskDoSpeciala.enemyCount += 1;
+            var x = (TextureProgressBar)przyciskDoSpeciala.GetChild(0);
+            x.Value += 10;
+        }
+    }
+
+    public async void Start()
+    {
+        ChangeProcessMode();
+
+        animacja.Play("Start");
+        await ToSignal(animacja, "animation_finished");
+
+        var x = (CanvasLayer)GetParent().GetChild(1);
+        x.Visible = true;
+
+        var y = (Game)GetTree().Root.GetNode("Game");
+        y.fala.ProcessMode = ProcessModeEnum.Inherit;
     }
 }

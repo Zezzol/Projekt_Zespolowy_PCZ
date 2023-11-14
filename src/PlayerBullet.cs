@@ -23,6 +23,18 @@ public partial class PlayerBullet : CharacterBody2D
 		tor_lotu.X = 0;
 		tor_lotu.Y = (float)(speed * delta); //make speed independent from fps
 
+        if (speed == -150)
+		{
+            var x = (CollisionShape2D)GetChild(1);
+            x.Scale = new Vector2(2, 2);
+
+            var y = (Sprite2D)GetChild(0);
+			y.Visible = false;
+
+			var z = (Sprite2D)GetChild(3);
+			z.Visible = true;
+		}
+
         MoveAndCollide(tor_lotu);
 	}
 }

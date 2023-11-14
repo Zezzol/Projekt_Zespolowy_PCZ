@@ -1,7 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8xgxqrdh2fcb"]
+[gd_scene load_steps=15 format=3 uid="uid://b8xgxqrdh2fcb"]
 
 [ext_resource type="Script" path="res://src/Enemy.cs" id="1_8jmi0"]
 [ext_resource type="Texture2D" uid="uid://2nu8hw34rd7p" path="res://Textury/statek_wroga.png" id="1_64bbo"]
+[ext_resource type="Texture2D" uid="uid://dg0bj5fb5utm6" path="res://Textury/Animacje/Wybuch/wybuch_1.png" id="3_t7sko"]
+[ext_resource type="Texture2D" uid="uid://byhm5u4840hjn" path="res://Textury/Animacje/Wybuch/wybuch_2.png" id="4_nosop"]
+[ext_resource type="Texture2D" uid="uid://cg8bw3uxdo63x" path="res://Textury/Animacje/Wybuch/wybuch_3.png" id="5_nrc8m"]
+[ext_resource type="Texture2D" uid="uid://b2bshpke3rnre" path="res://Textury/Animacje/Wybuch/wybuch_4.png" id="6_phfsr"]
+[ext_resource type="Texture2D" uid="uid://hoeuvrjehwc6" path="res://Textury/Animacje/Wybuch/wybuch_5.png" id="7_xc1g1"]
+[ext_resource type="Texture2D" uid="uid://datfx264mrbfv" path="res://Textury/Animacje/Wybuch/wybuch_6.png" id="8_242xx"]
+[ext_resource type="Texture2D" uid="uid://b2e5dbldp6rig" path="res://Textury/Animacje/Wybuch/wybuch_7.png" id="9_ak7qr"]
+[ext_resource type="Texture2D" uid="uid://bbkbnbpoeg8dy" path="res://Textury/Animacje/Wybuch/wybuch_8.png" id="10_toyd8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6yw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t7sko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nosop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrc8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_phfsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xc1g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_242xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ak7qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_toyd8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Animation" id="Animation_riqq6"]
 resource_name = "Movement_Left"
@@ -54,6 +94,13 @@ polygon = PackedVector2Array(0, 15, 15, 1, 15, -12, -15, -12, -15, 0)
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
 texture_filter = 1
 texture = ExtResource("1_64bbo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionPolygon2D"]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_p6yw0")
+frame = 3
+frame_progress = 0.104913
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

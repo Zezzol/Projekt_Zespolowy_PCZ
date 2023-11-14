@@ -23,6 +23,8 @@ public partial class Game : Node2D
         waveScene = (PackedScene)ResourceLoader.Load("res://src/Wave.tscn");
 		fala = (Wave)GetTree().Root.GetNode("Game/Wave");
 		fala.ProcessMode = ProcessModeEnum.Disabled;
+
+		
     }
 
 	public void StartWave()
@@ -77,4 +79,6 @@ public partial class Game : Node2D
 		fala.ProcessMode = ProcessModeEnum.Inherit;
 		StartWave();
     }
+
+    
 }

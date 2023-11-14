@@ -3,6 +3,9 @@ using System;
 
 public partial class Enemy : Area2D
 {
+    [Signal]
+    public delegate void EnemyKilledEventHandler(); //enemy killed signal
+
     [Export] int hp = 10;
     [Export] int contactDmg = 10; //damage on direct contact with the player
     [Export] int bulletDmg = 100; //damage on shooting the player
@@ -22,6 +25,9 @@ public partial class Enemy : Area2D
         bullet = (PackedScene)ResourceLoader.Load("res://src/EnemyBullet.tscn");
         drop = (PackedScene)ResourceLoader.Load("res://src/UpgradeWeapon.tscn");
         animacja = (AnimationPlayer)GetChild(1);
+
+
+        Connect(SignalName.EnemyKilled, new Callable(statek, Statek.MethodName._on_EnemyKilled)); //connect signal
 
         if (this.Position.X >= 324) //ustaw odpowiednia animacje, zeby przeciwnik nie wylecial poza pole gry
         {
@@ -75,6 +81,8 @@ public partial class Enemy : Area2D
         if (body is PlayerBullet playerBullet)
         {
             Hit(playerBullet.bulletDmg); //bullet dmg       
+             
+            EmitSignal(SignalName.EnemyKilled); //emit enemy killed signal
 
             body.QueueFree(); //delete bullet after contact
         }

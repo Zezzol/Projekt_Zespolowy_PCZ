@@ -7,7 +7,7 @@ public partial class Game : Node2D
 	public int highScore = 0;
 
 	PackedScene waveScene;
-	Wave fala;
+	public Wave fala;
 
 	public override void _Ready()
 	{
@@ -74,10 +74,9 @@ public partial class Game : Node2D
         c.Hide();
 
         Node2D player = (Node2D)GetChild(1);
-        player.GetChild(0).CallDeferred("ChangeProcessMode");
+        player.GetChild(0).CallDeferred("Start");
 
-		fala.ProcessMode = ProcessModeEnum.Inherit;
-		StartWave();
+		//fala.ProcessMode = ProcessModeEnum.Inherit;
     }
 
     

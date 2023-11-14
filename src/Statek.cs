@@ -18,7 +18,7 @@ public partial class Statek : Area2D
     ShootButton przyciskDoStrzelania;
     SpecialButton przyciskDoSpeciala;
     public TextureProgressBar hpBar;
-    AnimationPlayer animacja;
+    public AnimationPlayer animacja;
     AnimatedSprite2D sprite;
 
     public override void _Ready()
@@ -183,5 +183,19 @@ public partial class Statek : Area2D
             var x = (TextureProgressBar)przyciskDoSpeciala.GetChild(0);
             x.Value += 10;
         }
+    }
+
+    public async void Start()
+    {
+        ChangeProcessMode();
+
+        animacja.Play("Start");
+        await ToSignal(animacja, "animation_finished");
+
+        var x = (CanvasLayer)GetParent().GetChild(1);
+        x.Visible = true;
+
+        var y = (Game)GetTree().Root.GetNode("Game");
+        y.fala.ProcessMode = ProcessModeEnum.Inherit;
     }
 }

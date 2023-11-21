@@ -142,7 +142,16 @@ public partial class Statek : Area2D
             Tween t = CreateTween();
             t.TweenProperty(GetTree().Root.GetNode("Game/Player/CanvasLayer/Control/HPBar"), "value", hp, 0.2f);
 
-            if (hp <= 0) GetTree().Root.GetNode("Game").Call("GameOver"); //lose the game
+            if (hp <= 0) {
+                var canvas = (CanvasLayer)GetParent().GetChild(1);
+                canvas.Visible = false;
+
+                sprite.Play("end");
+                await ToSignal(sprite, "animation_finished");
+                sprite.Visible = false;                
+
+                GetTree().Root.GetNode("Game").Call("GameOver"); //lose the game
+            } 
             else
             {
                 animacja.Play("Hit");

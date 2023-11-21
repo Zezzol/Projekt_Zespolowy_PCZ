@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bonxia76v71m6"
+path="res://.godot/imported/Retro Gaming.ttf-ca82e5be4db33ad283c146d2025b3e89.fontdata"
+
+[deps]
+
+source_file="res://font/Retro Gaming.ttf"
+dest_files=["res://.godot/imported/Retro Gaming.ttf-ca82e5be4db33ad283c146d2025b3e89.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

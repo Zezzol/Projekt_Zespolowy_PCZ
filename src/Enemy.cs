@@ -66,6 +66,12 @@ public partial class Enemy : Area2D
         inAnimation = false;
     }
 
+    public void PlayFlyOffAnimation()
+    {
+        Tween t = GetTree().CreateTween();
+        t.TweenProperty(this, "position", new Vector2(this.Position.X, this.Position.Y + 270), 1).SetEase(Tween.EaseType.In); //animacja wlotu na pole gry
+    }
+
     public async void Shoot() //spawn bullet
     {
         if (sprite.Visible == true)

@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://di7s0psjgbrxt"]
+[gd_scene load_steps=10 format=3 uid="uid://di7s0psjgbrxt"]
 
 [ext_resource type="Script" path="res://src/Game.cs" id="1_s10kq"]
 [ext_resource type="PackedScene" uid="uid://dwjuaucj3yg5c" path="res://src/Player.tscn" id="1_y8h3s"]
 [ext_resource type="Texture2D" uid="uid://cmqg0n220lkkw" path="res://Textury/start_text.png" id="2_5hrwm"]
+[ext_resource type="Texture2D" uid="uid://v25dsxrqpps5" path="res://Textury/GAMEOVER.png" id="2_7r0hf"]
+[ext_resource type="Texture2D" uid="uid://c3djqs67cnruw" path="res://Textury/buttonBG.png" id="2_xkesk"]
 [ext_resource type="PackedScene" uid="uid://d034t6ks3nq7h" path="res://src/Wave.tscn" id="3_bf7m7"]
+[ext_resource type="FontFile" uid="uid://bonxia76v71m6" path="res://font/Retro Gaming.ttf" id="4_nijlb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qfqwh"]
+font = ExtResource("4_nijlb")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_2sq8y"]
+font = ExtResource("4_nijlb")
+font_size = 34
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_s10kq")
@@ -21,35 +32,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -47.5
-offset_top = -11.5
-offset_right = 47.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "GAME OVER"
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+z_index = 1
+texture_filter = 1
+position = Vector2(325, 148)
+texture = ExtResource("2_7r0hf")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="Button" type="TextureButton" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 0.486275)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.5
-offset_top = 11.0
-offset_right = 37.5
-offset_bottom = 42.0
+offset_left = -393.0
+offset_top = -185.0
+offset_right = -293.0
+offset_bottom = -135.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "RESTART"
+scale = Vector2(8.0105, 7.81829)
+texture_normal = ExtResource("2_xkesk")
 
 [node name="Score" type="Label" parent="CanvasLayer/Control"]
 visible = false
@@ -59,28 +63,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.5
-offset_top = -54.0
-offset_right = 81.5
-offset_bottom = -31.0
+offset_left = -86.0
+offset_top = -45.0
+offset_right = 338.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.394658, 0.511604)
 text = "Brawo! Nowy rekord!"
+label_settings = SubResource("LabelSettings_qfqwh")
 
 [node name="highScore" type="Label" parent="CanvasLayer/Control"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
-offset_top = -34.0
-offset_right = 36.5
-offset_bottom = -11.0
+offset_left = -46.0
+offset_top = -24.0
+offset_right = 153.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.418267, 0.43274)
 text = "Rekord: 0"
+label_settings = SubResource("LabelSettings_2sq8y")
 
 [node name="GameStart" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -106,24 +115,26 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "ZACZNIJ GRE"
 
-[node name="StartButton" type="Button" parent="CanvasLayer/GameStart"]
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/GameStart"]
+modulate = Color(0, 0, 0, 0.486275)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.0
-offset_top = 14.0
-offset_right = 27.0
-offset_bottom = 45.0
+offset_left = -426.0
+offset_top = -204.0
+offset_right = -326.0
+offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "START"
+scale = Vector2(8.66122, 8.44396)
+texture_normal = ExtResource("2_xkesk")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GameStart"]
 texture_filter = 1
-position = Vector2(332, 115)
+position = Vector2(328, 140)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_5hrwm")
 

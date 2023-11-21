@@ -7,7 +7,7 @@ public partial class Game : Node2D
 	public int highScore = 0;
 
 	PackedScene waveScene;
-	Wave fala;
+	public Wave fala;
 
 	public override void _Ready()
 	{
@@ -59,9 +59,21 @@ public partial class Game : Node2D
         c.Show();
 
         Node2D player = (Node2D)GetChild(1);
-		player.Hide();
 		player.GetChild(0).CallDeferred("ChangeProcessMode");
+
+        EnemyFlyOffAnimation();
 	}
+
+	public async void EnemyFlyOffAnimation()
+	{
+        for (int i = 0; i < fala.GetChildCount(); i++)
+        {
+            await ToSignal(GetTree().CreateTimer(0.2), "timeout");
+
+            var fc = (Enemy)fala.GetChild(i);
+            fc.PlayFlyOffAnimation();
+        }
+    }
 
     public void _on_button_pressed() //restart
 	{
@@ -74,10 +86,9 @@ public partial class Game : Node2D
         c.Hide();
 
         Node2D player = (Node2D)GetChild(1);
-        player.GetChild(0).CallDeferred("ChangeProcessMode");
+        player.GetChild(0).CallDeferred("Start");
 
-		fala.ProcessMode = ProcessModeEnum.Inherit;
-		StartWave();
+		//fala.ProcessMode = ProcessModeEnum.Inherit;
     }
 
     

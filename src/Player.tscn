@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://dwjuaucj3yg5c"]
+[gd_scene load_steps=147 format=3 uid="uid://dwjuaucj3yg5c"]
 
 [ext_resource type="Script" path="res://src/Statek.cs" id="2_petby"]
 [ext_resource type="Texture2D" uid="uid://dht5teq5df1dt" path="res://Textury/statek.png" id="3_33jck"]
@@ -21,8 +21,16 @@
 [ext_resource type="Texture2D" uid="uid://hpommgaxa2r1" path="res://Textury/Animacje/Upgrade/Upgrade_2to3/upg2to3_5.png" id="12_ljagj"]
 [ext_resource type="Texture2D" uid="uid://e4ws4rwwa7ab" path="res://Textury/statek_lvl2.png" id="13_k188s"]
 [ext_resource type="Texture2D" uid="uid://fqhkxg8cq5ol" path="res://Textury/statek_lvl3.png" id="14_tlda8"]
+[ext_resource type="Texture2D" uid="uid://dg0bj5fb5utm6" path="res://Textury/Animacje/Wybuch/wybuch_1.png" id="15_8lgxb"]
+[ext_resource type="Texture2D" uid="uid://byhm5u4840hjn" path="res://Textury/Animacje/Wybuch/wybuch_2.png" id="16_dqb5e"]
+[ext_resource type="Texture2D" uid="uid://cg8bw3uxdo63x" path="res://Textury/Animacje/Wybuch/wybuch_3.png" id="17_fio76"]
+[ext_resource type="Texture2D" uid="uid://b2bshpke3rnre" path="res://Textury/Animacje/Wybuch/wybuch_4.png" id="18_h5vsj"]
+[ext_resource type="Texture2D" uid="uid://hoeuvrjehwc6" path="res://Textury/Animacje/Wybuch/wybuch_5.png" id="19_7k38a"]
+[ext_resource type="Texture2D" uid="uid://datfx264mrbfv" path="res://Textury/Animacje/Wybuch/wybuch_6.png" id="20_pja00"]
+[ext_resource type="Texture2D" uid="uid://b2e5dbldp6rig" path="res://Textury/Animacje/Wybuch/wybuch_7.png" id="21_i61fd"]
 [ext_resource type="Texture2D" uid="uid://bgrfm10c2mnuh" path="res://Textury/Tła/t1 klatki/tlo1.png" id="22_1i8v4"]
 [ext_resource type="Texture2D" uid="uid://1awc61ipluqe" path="res://Textury/special_under.png" id="22_6gio2"]
+[ext_resource type="Texture2D" uid="uid://bbkbnbpoeg8dy" path="res://Textury/Animacje/Wybuch/wybuch_8.png" id="22_vl7rx"]
 [ext_resource type="Texture2D" uid="uid://boani5sjm8cu1" path="res://Textury/Tła/t1 klatki/tlo2.png" id="23_fyplt"]
 [ext_resource type="Texture2D" uid="uid://bymuo47s7kobu" path="res://Textury/Animacje/HP/hp_under.png" id="23_trqab"]
 [ext_resource type="Texture2D" uid="uid://ctogi46jvs6nm" path="res://Textury/Tła/t1 klatki/tlo3.png" id="24_4gomn"]
@@ -38,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ndqbjyrlhjo" path="res://Textury/Tła/t1 klatki/tlo11.png" id="32_qgg0f"]
 [ext_resource type="Texture2D" uid="uid://dik4ddqitpcca" path="res://Textury/Tła/t1 klatki/tlo12.png" id="33_w70yy"]
 [ext_resource type="Texture2D" uid="uid://b7f74bwpraxte" path="res://Textury/Tła/t1 klatki/tlo13.png" id="34_21m05"]
+[ext_resource type="FontFile" uid="uid://bonxia76v71m6" path="res://font/Retro Gaming.ttf" id="34_o1uld"]
 [ext_resource type="Texture2D" uid="uid://bdlkydehcxk04" path="res://Textury/Tła/t1 klatki/tlo14.png" id="35_87ssq"]
 [ext_resource type="Texture2D" uid="uid://icaervyt70ig" path="res://Textury/Tła/t1 klatki/tlo15.png" id="36_bxbhc"]
 [ext_resource type="Texture2D" uid="uid://belfae10do1jn" path="res://Textury/Tła/t1 klatki/tlo16.png" id="37_0t4rh"]
@@ -134,6 +143,35 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("15_8lgxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dqb5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fio76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h5vsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7k38a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pja00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_i61fd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vl7rx")
+}],
+"loop": false,
+"name": &"end",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_33jck")
 }],
 "loop": true,
@@ -212,13 +250,37 @@ tracks/0/keys = {
 "values": [true, false, true, true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_41tg2"]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.615572, 5.46416),
+"update": 0,
+"values": [Vector2(322, 295), Vector2(322, 205)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41ouy"]
 _data = {
-"Hit": SubResource("Animation_d7jei")
+"Hit": SubResource("Animation_d7jei"),
+"Start": SubResource("Animation_41tg2")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_34081"]
 radius = 48.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mf5t1"]
+font = ExtResource("34_o1uld")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_f63cf"]
+font = ExtResource("34_o1uld")
+font_size = 34
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ufo00"]
 animations = [{
@@ -543,15 +605,17 @@ animations = [{
 [node name="Player" type="Node2D"]
 
 [node name="Statek" type="Area2D" parent="."]
-position = Vector2(344, 158)
+position = Vector2(324, 295)
 collision_mask = 8
 script = ExtResource("2_petby")
 
 [node name="Statek_kadlub" type="AnimatedSprite2D" parent="Statek"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fk6jf")
-animation = &"level_up2"
+animation = &"end"
 autoplay = "first_stage"
+frame = 7
+frame_progress = 1.0
 
 [node name="Statek_kolizja" type="CollisionPolygon2D" parent="Statek"]
 polygon = PackedVector2Array(15, 15, 0, -15, -15, 15)
@@ -562,6 +626,7 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -635,20 +700,24 @@ texture_progress = ExtResource("25_g1ert")
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 18.0
-offset_top = -268.0
-offset_right = 41.0
-offset_bottom = -245.0
+offset_left = 22.0
+offset_top = -265.0
+offset_right = 74.0
+offset_bottom = -221.0
+scale = Vector2(0.38909, 0.417721)
 text = "HP"
+label_settings = SubResource("LabelSettings_mf5t1")
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 539.0
-offset_top = -267.0
-offset_right = 645.0
-offset_bottom = -244.0
+offset_left = 496.0
+offset_top = -266.0
+offset_right = 692.0
+offset_bottom = -222.0
+scale = Vector2(0.419494, 0.49249)
 text = "Punkty: 0"
+label_settings = SubResource("LabelSettings_f63cf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.345098)

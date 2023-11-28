@@ -17,6 +17,7 @@ public partial class Enemy : Area2D
     Statek statek;
     Label label2;
     Sprite2D sprite;
+    Tween t;
     bool shootReady = true;
     bool inAnimation = false;
 
@@ -29,6 +30,7 @@ public partial class Enemy : Area2D
         animacja = (AnimationPlayer)GetChild(1);
         wybuch = (AnimatedSprite2D)GetChild(0).GetChild(1);
         sprite = (Sprite2D)GetChild(0).GetChild(0);
+        t = GetTree().CreateTween();
 
         Connect(SignalName.EnemyKilled, new Callable(statek, Statek.MethodName._on_EnemyKilled)); //connect signal
 
@@ -41,7 +43,7 @@ public partial class Enemy : Area2D
             animationName = "Movement_LeftRight";
         }
 
-        Tween t = GetTree().CreateTween();
+        
         t.TweenProperty(this, "position", new Vector2(this.Position.X, this.Position.Y + 100), 1).SetTrans(Tween.TransitionType.Sine); //animacja wlotu na pole gry
     }
 
@@ -68,8 +70,8 @@ public partial class Enemy : Area2D
 
     public void PlayFlyOffAnimation()
     {
-        Tween t = GetTree().CreateTween();
-        t.TweenProperty(this, "position", new Vector2(this.Position.X, this.Position.Y + 270), 1).SetEase(Tween.EaseType.In); //animacja wlotu na pole gry
+        Tween t2 = GetTree().CreateTween();
+        t2.TweenProperty(this, "position", new Vector2(this.Position.X, this.Position.Y + 270), 1).SetEase(Tween.EaseType.In); //animacja wlotu na pole gry
     }
 
     public async void Shoot() //spawn bullet
@@ -92,7 +94,10 @@ public partial class Enemy : Area2D
     {
         if (body is PlayerBullet playerBullet)
         {
-            Hit(playerBullet.bulletDmg); //bullet dmg
+            if (hp > 0)
+            {
+                Hit(playerBullet.bulletDmg); //bullet dmg
+            }
 
             body.QueueFree(); //delete bullet after contact
         }
@@ -105,7 +110,7 @@ public partial class Enemy : Area2D
     }
     public void UpdateScore()
     {
-        statek.punkty += 100;
+        if (statek.punkty < 9999) statek.punkty += 100;
         label2.Text = $"Punkty: {statek.punkty}";
     }
     public async void Hit(int dmg) //take damage
@@ -114,6 +119,7 @@ public partial class Enemy : Area2D
 
         if(hp <= 0)
         {
+            t.Stop();
             sprite.Visible = false;
 
             animacja.Pause();

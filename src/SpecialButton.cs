@@ -1,14 +1,22 @@
 using Godot;
 using System;
 
+//! @brief Scena przycisku do wystrzelenia pocisku specjalnego.
 public partial class SpecialButton : TouchScreenButton
 {
     Node stateknode;
     TextureProgressBar progressbar;
-    public int enemyCountRequired = 10;
-    public int enemyCount = 0;
+    public int enemyCountRequired = 10; /*!< @brief Wymagana liczba pokonanych przeciwnikow. */
+    public int enemyCount = 0; /*!< @brief Liczba aktualnie pokonanych przeciwnikow. */
 
-    // Called when the node enters the scene tree for the first time.
+    /*! @brief Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny
+   *
+   * Podlacza sygnal klikniecia obiektu przez przeciwnika.
+   * Sygnal ten sprawdza, czy liczba pokonanych przeciwnikow zgadza sie z liczba wymaganych pokonanych przeciwnikow.
+   * Jezeli tak, to wywoluje funkcje Statek.ShootSpecial().
+   * 
+   * Aktualizuje rowniez wyglad przycisku.
+   */
     public override void _Ready()
     {
         stateknode = GetTree().Root.GetNode("Game/Player/Statek");
@@ -23,10 +31,5 @@ public partial class SpecialButton : TouchScreenButton
                 progressbar.Value = 0;
             }
         }; //connect pressed signal
-    }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
     }
 }

@@ -1,0 +1,81 @@
+\doxysection{Upgrade\+Weapon Class Reference}
+\hypertarget{class_upgrade_weapon}{}\label{class_upgrade_weapon}\index{UpgradeWeapon@{UpgradeWeapon}}
+
+
+Obiekt ulepszen zbieranych przez statek.  
+
+
+Inheritance diagram for Upgrade\+Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_upgrade_weapon}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_upgrade_weapon_a70dd988513b8b30bd8e56d64abeb6ef4}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_upgrade_weapon_ac1b4ff5b55bf03fa6d3da6515ddbb93e}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_upgrade_weapon_a016dde3b2014722d4ee68e8bb5a6eab3}{\+\_\+on\+\_\+area\+\_\+entered}} (Area2D area)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie, jezeli obiekt wykryje kolizje. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Obiekt ulepszen zbieranych przez statek. 
+
+Klasa ta decyduje o tym jak ulepszyæ statek na podstawie zebranych ulepszen. Moze ona ulepszyc i odnowic punkty zycia przeciwnika, lub zmienic tryb strzelania. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_upgrade_weapon_a016dde3b2014722d4ee68e8bb5a6eab3}\label{class_upgrade_weapon_a016dde3b2014722d4ee68e8bb5a6eab3} 
+\index{UpgradeWeapon@{UpgradeWeapon}!\_on\_area\_entered@{\_on\_area\_entered}}
+\index{\_on\_area\_entered@{\_on\_area\_entered}!UpgradeWeapon@{UpgradeWeapon}}
+\doxysubsubsection{\texorpdfstring{\_on\_area\_entered()}{\_on\_area\_entered()}}
+{\footnotesize\ttfamily void Upgrade\+Weapon.\+\_\+on\+\_\+area\+\_\+entered (\begin{DoxyParamCaption}\item[{Area2D}]{area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie, jezeli obiekt wykryje kolizje. 
+
+Sprawdza czy kolizja nastapila z obiektem \doxylink{class_statek}{Statek}. Jezeli tak, to w zaleznosci od zmiennej w ktorej zapisane jest, co obiekt ma ulepszac ustawiane sa odpowienio statystyki. Jezeli obiekt ma ulepszac zycie, to ustawia wartosci punktow zycia obiektu \doxylink{class_statek}{Statek} na maksymalna wartosc, a nastepnie zwieksza ja o 50. Jezeli ma ulepszac strzelanie, wywoluje funkcje \doxylink{class_statek_a4e6d98b1920c2ddaa465cebe7517afa5}{Statek.\+Upgrade()}. Na samym koncu usuwa obiekt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & Obiekt z ktorym wykryto kolizje. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_upgrade_weapon_ac1b4ff5b55bf03fa6d3da6515ddbb93e}\label{class_upgrade_weapon_ac1b4ff5b55bf03fa6d3da6515ddbb93e} 
+\index{UpgradeWeapon@{UpgradeWeapon}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!UpgradeWeapon@{UpgradeWeapon}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily override void Upgrade\+Weapon.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Odpowiada za poruszanie sie ulepszenia w dol ekranu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_upgrade_weapon_a70dd988513b8b30bd8e56d64abeb6ef4}\label{class_upgrade_weapon_a70dd988513b8b30bd8e56d64abeb6ef4} 
+\index{UpgradeWeapon@{UpgradeWeapon}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!UpgradeWeapon@{UpgradeWeapon}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Upgrade\+Weapon.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Decyduje o tym, co obiekt bedzie ulepszac, zycie czy strzelanie i zapisuje to do zmiennej.
+
+Ustawia kolor ulepszenia w zaleznosci od tego, co bedzie ten obiekt ulepszac. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_upgrade_weapon_8cs}{Upgrade\+Weapon.\+cs}}\end{DoxyCompactItemize}

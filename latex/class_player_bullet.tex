@@ -1,0 +1,102 @@
+\doxysection{Player\+Bullet Class Reference}
+\hypertarget{class_player_bullet}{}\label{class_player_bullet}\index{PlayerBullet@{PlayerBullet}}
+
+
+Obiekt pocisku gracza.  
+
+
+Inheritance diagram for Player\+Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_bullet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_player_bullet_ae6ddd3e226e081519e35255afd78a4f3}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_player_bullet_a70d4897b779b6e6caef7e8a58f0e6869}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector2 \mbox{\hyperlink{class_player_bullet_ab97dcc1db52e5df3941597879f3250b7}{tor\+\_\+lotu}} = Vector2.\+Zero
+\begin{DoxyCompactList}\small\item\em Tor lotu pocisku. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_bullet_ada3fdee0e11eae3ffefe80bf9daca2f9}{bullet\+Dmg}} = 0
+\begin{DoxyCompactList}\small\item\em Wartosc obrazen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_bullet_a2d1013bc48a7813b05d2c36f846aa696}{speed}} = -\/100
+\begin{DoxyCompactList}\small\item\em Szybkosc pocisku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Obiekt pocisku gracza. 
+
+Ta klasa przechowuje tor lotu pocisku, oraz obrazenia zadane nim. Posiada tez Visibility\+Notifier, aby wiadomo bylo, kiedy pocisk wyszedl poza ekran. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_bullet_a70d4897b779b6e6caef7e8a58f0e6869}\label{class_player_bullet_a70d4897b779b6e6caef7e8a58f0e6869} 
+\index{PlayerBullet@{PlayerBullet}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!PlayerBullet@{PlayerBullet}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily override void Player\+Bullet.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Funkcja ta, odpowiada za poruszanie pociskiem po domyslnym torze lotu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_bullet_ae6ddd3e226e081519e35255afd78a4f3}\label{class_player_bullet_ae6ddd3e226e081519e35255afd78a4f3} 
+\index{PlayerBullet@{PlayerBullet}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!PlayerBullet@{PlayerBullet}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Player\+Bullet.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Ustawia Visibility\+Notifier. Jezeli gra wykryje, ze pocisk jest poza ekranem gry, to usunie go. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_bullet_ada3fdee0e11eae3ffefe80bf9daca2f9}\label{class_player_bullet_ada3fdee0e11eae3ffefe80bf9daca2f9} 
+\index{PlayerBullet@{PlayerBullet}!bulletDmg@{bulletDmg}}
+\index{bulletDmg@{bulletDmg}!PlayerBullet@{PlayerBullet}}
+\doxysubsubsection{\texorpdfstring{bulletDmg}{bulletDmg}}
+{\footnotesize\ttfamily int Player\+Bullet.\+bullet\+Dmg = 0}
+
+
+
+Wartosc obrazen. 
+
+\Hypertarget{class_player_bullet_a2d1013bc48a7813b05d2c36f846aa696}\label{class_player_bullet_a2d1013bc48a7813b05d2c36f846aa696} 
+\index{PlayerBullet@{PlayerBullet}!speed@{speed}}
+\index{speed@{speed}!PlayerBullet@{PlayerBullet}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily int Player\+Bullet.\+speed = -\/100}
+
+
+
+Szybkosc pocisku. 
+
+\Hypertarget{class_player_bullet_ab97dcc1db52e5df3941597879f3250b7}\label{class_player_bullet_ab97dcc1db52e5df3941597879f3250b7} 
+\index{PlayerBullet@{PlayerBullet}!tor\_lotu@{tor\_lotu}}
+\index{tor\_lotu@{tor\_lotu}!PlayerBullet@{PlayerBullet}}
+\doxysubsubsection{\texorpdfstring{tor\_lotu}{tor\_lotu}}
+{\footnotesize\ttfamily Vector2 Player\+Bullet.\+tor\+\_\+lotu = Vector2.\+Zero}
+
+
+
+Tor lotu pocisku. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_player_bullet_8cs}{Player\+Bullet.\+cs}}\end{DoxyCompactItemize}

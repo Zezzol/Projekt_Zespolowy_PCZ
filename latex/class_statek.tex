@@ -1,0 +1,235 @@
+\doxysection{Statek Class Reference}
+\hypertarget{class_statek}{}\label{class_statek}\index{Statek@{Statek}}
+
+
+Klasa statku gracza.  
+
+
+Inheritance diagram for Statek\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_statek}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_statek_a8963b06b78e1be60618e69d5dbe3086e}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_statek_ae4a4b57dbd28ce202860e0231e4a6195}{\+\_\+\+Physics\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_statek_a259a404f51c016c71dd7f4916b1b7ea5}{Shoot}} ()
+\begin{DoxyCompactList}\small\item\em Strzelanie pociskami przez gracza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_statek_ad34db098ea80a92266ba2c1ed980993d}{Shoot\+Special}} ()
+\begin{DoxyCompactList}\small\item\em Strzelanie pociskami specjalnymi. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_statek_ae4b04b57c2e5fe96bf5cb40ece35f603}{Hit}} (int dmg)
+\begin{DoxyCompactList}\small\item\em Zbieranie obrazen przez gracza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_statek_a1a732e73ff14442d6b9139ba59e1bd65}{Change\+Process\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Zmienia tryb procesowania obiektu \doxylink{class_statek}{Statek} na przeciwny do aktualnego (wlacza i wylacza sterowanie). \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_statek_a4e6d98b1920c2ddaa465cebe7517afa5}{Upgrade}} ()
+\begin{DoxyCompactList}\small\item\em Zmienia ilosc przyciskow wystrzeliwanych przez gracza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_statek_a1109d1824301cf46d28999f044d26fe8}{\+\_\+on\+\_\+\+Enemy\+Killed}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wywolujaca sie w odpowiedzi na sygnal zabicia przeciwnika. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_statek_ae50446212708fb3af5d07a1db415a898}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wywolywana po starcie nowej gry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_statek_a9b0d7a4a940a5c95cc754c2cd657fff6}{punkty}} = 0
+\begin{DoxyCompactList}\small\item\em Liczba aktualnych zdobytych punktow. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_statek_a053aac82155efa6e600013a7fd9bd91a}{maks\+Hp}} = 100
+\begin{DoxyCompactList}\small\item\em Maksymalna wartosc punktow zycia. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_statek_a9321278e511f2423db991a91b564b224}{hp}} = 100
+\begin{DoxyCompactList}\small\item\em Aktualna wartosc punktow zycia. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_statek_a0572c79ec8b4f518422811a4ee71d69b}{liczba\+Pociskow}} = 1
+\begin{DoxyCompactList}\small\item\em Liczba pociskow, ktore gracz moze na raz wystrzelic. \end{DoxyCompactList}\item 
+Texture\+Progress\+Bar \mbox{\hyperlink{class_statek_a5895ad7808ed69138bd63516fa0313d1}{hp\+Bar}}
+\begin{DoxyCompactList}\small\item\em Obiekt pasku zycia pokazujacego aktualne punkty zycia gracza. \end{DoxyCompactList}\item 
+Animation\+Player \mbox{\hyperlink{class_statek_a4bbb278ebe7b19449cc25c73e5c69cb3}{animacja}}
+\begin{DoxyCompactList}\small\item\em Obiekt Animation\+Player, za pomoca ktorego wykonywane sa animacje gracza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa statku gracza. 
+
+Ta klasa przechowuje logike dotyczaca statku gracza, ilosc punktow zycia, obrazenia zadawane od pociskow itp.
+
+Przechowuje rowniez i zlicza punkty zdobyte przez gracza. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_statek_a1109d1824301cf46d28999f044d26fe8}\label{class_statek_a1109d1824301cf46d28999f044d26fe8} 
+\index{Statek@{Statek}!\_on\_EnemyKilled@{\_on\_EnemyKilled}}
+\index{\_on\_EnemyKilled@{\_on\_EnemyKilled}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{\_on\_EnemyKilled()}{\_on\_EnemyKilled()}}
+{\footnotesize\ttfamily void Statek.\+\_\+on\+\_\+\+Enemy\+Killed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wywolujaca sie w odpowiedzi na sygnal zabicia przeciwnika. 
+
+Zwieksza ilosc zmienna \doxylink{class_special_button_ad13939ff4097a7fa2c829419107fcb70}{Special\+Button.\+enemy\+Count}. \Hypertarget{class_statek_ae4a4b57dbd28ce202860e0231e4a6195}\label{class_statek_ae4a4b57dbd28ce202860e0231e4a6195} 
+\index{Statek@{Statek}!\_PhysicsProcess@{\_PhysicsProcess}}
+\index{\_PhysicsProcess@{\_PhysicsProcess}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{\_PhysicsProcess()}{\_PhysicsProcess()}}
+{\footnotesize\ttfamily override void Statek.\+\_\+\+Physics\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Pobiera wartosci od \doxylink{class_joystick}{Joystick}, ktore nastepnie sa konwertowane na wektor ruchu.
+
+Zawraca statek spowrotem na pole gry, jezeli poza nie wyleci.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_statek_a8963b06b78e1be60618e69d5dbe3086e}\label{class_statek_a8963b06b78e1be60618e69d5dbe3086e} 
+\index{Statek@{Statek}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Statek.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Ustawia zmienne przechowujace obiekty takie jak, pociski, przyciski i grafike. \Hypertarget{class_statek_a1a732e73ff14442d6b9139ba59e1bd65}\label{class_statek_a1a732e73ff14442d6b9139ba59e1bd65} 
+\index{Statek@{Statek}!ChangeProcessMode@{ChangeProcessMode}}
+\index{ChangeProcessMode@{ChangeProcessMode}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{ChangeProcessMode()}{ChangeProcessMode()}}
+{\footnotesize\ttfamily void Statek.\+Change\+Process\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zmienia tryb procesowania obiektu \doxylink{class_statek}{Statek} na przeciwny do aktualnego (wlacza i wylacza sterowanie). 
+
+\Hypertarget{class_statek_ae4b04b57c2e5fe96bf5cb40ece35f603}\label{class_statek_ae4b04b57c2e5fe96bf5cb40ece35f603} 
+\index{Statek@{Statek}!Hit@{Hit}}
+\index{Hit@{Hit}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{Hit()}{Hit()}}
+{\footnotesize\ttfamily async void Statek.\+Hit (\begin{DoxyParamCaption}\item[{int}]{dmg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zbieranie obrazen przez gracza. 
+
+Sprawdza, czy gracz aktualnie jest nietykalny. Jezeli nie, to wlacza nietykalnosc i zmniejsza ilosc punktow zycia o odpowiednia wartosc i animuje pasek zycia gracza. Nastepnie sprawdza, czy ilosc punktow zycia gracza jest mniejsza lub rowna 0. Jezeli tak, to grafika statku i interfejs sa wylaczane, wlaczana jest animacja wybuchu i wywolywana jest funkcja \doxylink{class_game_ab6ddf8c5a2e0a56fb6a449e46d8e9967}{Game.\+Game\+Over()}. Jezeli nie, to wlaczana jest animacja otrzymania obrazen i wylaczana jest nietykalnosc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dmg} & Ilosc otrzymanych obrazen. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_statek_a259a404f51c016c71dd7f4916b1b7ea5}\label{class_statek_a259a404f51c016c71dd7f4916b1b7ea5} 
+\index{Statek@{Statek}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{Shoot()}{Shoot()}}
+{\footnotesize\ttfamily async void Statek.\+Shoot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Strzelanie pociskami przez gracza. 
+
+Do sceny dodaje obiekt player\+Bullet i ustawia mu odpowiednia pozycje. Nastepnie czeka, aby moc strzelic ponownie.
+
+Sprawdza rowniez ilosc przyciskow, ktore gracz moze wystrzelic na raz i dodaje odpowiednia ich liczbe w zaleznosci od zmiennej liczba\+Pociskow. \Hypertarget{class_statek_ad34db098ea80a92266ba2c1ed980993d}\label{class_statek_ad34db098ea80a92266ba2c1ed980993d} 
+\index{Statek@{Statek}!ShootSpecial@{ShootSpecial}}
+\index{ShootSpecial@{ShootSpecial}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{ShootSpecial()}{ShootSpecial()}}
+{\footnotesize\ttfamily void Statek.\+Shoot\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Strzelanie pociskami specjalnymi. 
+
+Do sceny dodaje obiekt player\+Bullet i ustawia mu odpowiednia pozycje. Zwieksza mu domyslne obrazenia, predkosc i skale. \Hypertarget{class_statek_ae50446212708fb3af5d07a1db415a898}\label{class_statek_ae50446212708fb3af5d07a1db415a898} 
+\index{Statek@{Statek}!Start@{Start}}
+\index{Start@{Start}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily async void Statek.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wywolywana po starcie nowej gry. 
+
+Zmienia tryb procesowania za pomoca \doxylink{class_statek_a1a732e73ff14442d6b9139ba59e1bd65}{Change\+Process\+Mode()} i wlacza animacje wlotu gracza na pole gry. Nastepnie wlacza interfejs uzytkownika. \Hypertarget{class_statek_a4e6d98b1920c2ddaa465cebe7517afa5}\label{class_statek_a4e6d98b1920c2ddaa465cebe7517afa5} 
+\index{Statek@{Statek}!Upgrade@{Upgrade}}
+\index{Upgrade@{Upgrade}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{Upgrade()}{Upgrade()}}
+{\footnotesize\ttfamily async void Statek.\+Upgrade (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zmienia ilosc przyciskow wystrzeliwanych przez gracza. 
+
+Wlacza rowniez animacje ulepszenia statku i przelacza grafike statku. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_statek_a4bbb278ebe7b19449cc25c73e5c69cb3}\label{class_statek_a4bbb278ebe7b19449cc25c73e5c69cb3} 
+\index{Statek@{Statek}!animacja@{animacja}}
+\index{animacja@{animacja}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{animacja}{animacja}}
+{\footnotesize\ttfamily Animation\+Player Statek.\+animacja}
+
+
+
+Obiekt Animation\+Player, za pomoca ktorego wykonywane sa animacje gracza. 
+
+\Hypertarget{class_statek_a9321278e511f2423db991a91b564b224}\label{class_statek_a9321278e511f2423db991a91b564b224} 
+\index{Statek@{Statek}!hp@{hp}}
+\index{hp@{hp}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{hp}{hp}}
+{\footnotesize\ttfamily int Statek.\+hp = 100}
+
+
+
+Aktualna wartosc punktow zycia. 
+
+\Hypertarget{class_statek_a5895ad7808ed69138bd63516fa0313d1}\label{class_statek_a5895ad7808ed69138bd63516fa0313d1} 
+\index{Statek@{Statek}!hpBar@{hpBar}}
+\index{hpBar@{hpBar}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{hpBar}{hpBar}}
+{\footnotesize\ttfamily Texture\+Progress\+Bar Statek.\+hp\+Bar}
+
+
+
+Obiekt pasku zycia pokazujacego aktualne punkty zycia gracza. 
+
+\Hypertarget{class_statek_a0572c79ec8b4f518422811a4ee71d69b}\label{class_statek_a0572c79ec8b4f518422811a4ee71d69b} 
+\index{Statek@{Statek}!liczbaPociskow@{liczbaPociskow}}
+\index{liczbaPociskow@{liczbaPociskow}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{liczbaPociskow}{liczbaPociskow}}
+{\footnotesize\ttfamily int Statek.\+liczba\+Pociskow = 1}
+
+
+
+Liczba pociskow, ktore gracz moze na raz wystrzelic. 
+
+\Hypertarget{class_statek_a053aac82155efa6e600013a7fd9bd91a}\label{class_statek_a053aac82155efa6e600013a7fd9bd91a} 
+\index{Statek@{Statek}!maksHp@{maksHp}}
+\index{maksHp@{maksHp}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{maksHp}{maksHp}}
+{\footnotesize\ttfamily int Statek.\+maks\+Hp = 100}
+
+
+
+Maksymalna wartosc punktow zycia. 
+
+\Hypertarget{class_statek_a9b0d7a4a940a5c95cc754c2cd657fff6}\label{class_statek_a9b0d7a4a940a5c95cc754c2cd657fff6} 
+\index{Statek@{Statek}!punkty@{punkty}}
+\index{punkty@{punkty}!Statek@{Statek}}
+\doxysubsubsection{\texorpdfstring{punkty}{punkty}}
+{\footnotesize\ttfamily int Statek.\+punkty = 0}
+
+
+
+Liczba aktualnych zdobytych punktow. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{src_2_statek_8cs}{Statek.\+cs}}\end{DoxyCompactItemize}

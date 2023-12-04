@@ -1,0 +1,79 @@
+\doxysection{Joystick Class Reference}
+\hypertarget{class_joystick}{}\label{class_joystick}\index{Joystick@{Joystick}}
+
+
+Obiekt odpowiadajacy za jostick do poruszania statkiem.  
+
+
+Inheritance diagram for Joystick\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_joystick}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_joystick_aa0ea526d1769d293409048575b0a59e2}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_joystick_a97eddca18bc28165760c5d6a08cbbd03}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_joystick_aa43c58cd551d9926bf217a184a315e8e}{\+\_\+\+Input}} (Input\+Event input\+Event)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy gra wykryje wprowadzenie danych od gracza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Obiekt odpowiadajacy za jostick do poruszania statkiem. 
+
+Klasa ta zbiera dane z joysticka, o tym, gdzie gracz chce pokierowac statkiem i przesyla je do klasy \doxylink{class_statek}{Statek}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_joystick_aa43c58cd551d9926bf217a184a315e8e}\label{class_joystick_aa43c58cd551d9926bf217a184a315e8e} 
+\index{Joystick@{Joystick}!\_Input@{\_Input}}
+\index{\_Input@{\_Input}!Joystick@{Joystick}}
+\doxysubsubsection{\texorpdfstring{\_Input()}{\_Input()}}
+{\footnotesize\ttfamily override void Joystick.\+\_\+\+Input (\begin{DoxyParamCaption}\item[{Input\+Event}]{input\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy gra wykryje wprowadzenie danych od gracza. 
+
+Sprawdzane jest wydarzenie. Jezeli wydarzenie jest wcisnieciem przycisku joysticka, to sprawdza czy gracz wciska przycisk w polu pocisku. Jezeli tak, to zapisuje dane o pozycji przycisku.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Event} & Jest to wydarzenie, ktore gra wykryje. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_joystick_a97eddca18bc28165760c5d6a08cbbd03}\label{class_joystick_a97eddca18bc28165760c5d6a08cbbd03} 
+\index{Joystick@{Joystick}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!Joystick@{Joystick}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily override void Joystick.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Pobiera wartosci z joysticka, jezeli jest wcisniety, i wysyla je do obiektu \doxylink{class_statek}{Statek} poprzez Statek.\+recive\+Joystick(). Jezeli nie, to ustawia wartosci na 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_joystick_aa0ea526d1769d293409048575b0a59e2}\label{class_joystick_aa0ea526d1769d293409048575b0a59e2} 
+\index{Joystick@{Joystick}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Joystick@{Joystick}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Joystick.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Ustawia zmienne przechowujace rozmiar przycisku. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{src_2_joystick_8cs}{Joystick.\+cs}}\end{DoxyCompactItemize}

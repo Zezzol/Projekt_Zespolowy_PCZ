@@ -1,24 +1,35 @@
 using Godot;
 using System;
 
+//! @brief Obiekt pocisku gracza.
+/*!
+  Ta klasa przechowuje tor lotu pocisku, oraz obrazenia zadane nim.
+  Posiada tez VisibilityNotifier, aby wiadomo bylo, kiedy pocisk wyszedl poza ekran.
+*/
 public partial class PlayerBullet : CharacterBody2D
 {
-	public Vector2 tor_lotu = Vector2.Zero;
-    public int bulletDmg = 0;
-	public int speed = -100;
+	public Vector2 tor_lotu = Vector2.Zero; /*!< @brief Tor lotu pocisku. */
+    public int bulletDmg = 0; /*!< @brief Wartosc obrazen. */
+    public int speed = -100; /*!< @brief Szybkosc pocisku. */
     VisibleOnScreenNotifier2D VisibilityNotifier;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    /*! @brief Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny
+    *
+    * Ustawia VisibilityNotifier. Jezeli gra wykryje, ze pocisk jest poza ekranem gry, to usunie go.
+    */
+    public override void _Ready()
 	{
 		VisibilityNotifier = (VisibleOnScreenNotifier2D)GetChild(2);
 		VisibilityNotifier.ScreenExited += () => QueueFree(); //delete when out of screen
-
-		//GD.Print("piu");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    /*! @brief Funkcja wlaczajaca sie w kazdej klatce gry.
+    *
+    * Funkcja ta, odpowiada za poruszanie pociskiem po domyslnym torze lotu.
+    * 
+    * @param delta Oznacza czas ktory minal od ostatniej klatki gry.
+    */
+    public override void _Process(double delta)
 	{
 		tor_lotu.X = 0;
 		tor_lotu.Y = (float)(speed * delta); //make speed independent from fps

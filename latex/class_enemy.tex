@@ -1,0 +1,146 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{class_enemy}{}\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+Scena pojedynczego przeciwnika.  
+
+
+Inheritance diagram for Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+delegate void \mbox{\hyperlink{class_enemy_acc5bb2f15feb08b65043c91d0fff4af7}{Enemy\+Killed\+Event\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Sygnal pokonania przeciwnika. Emitowany jest do obiektu \doxylink{class_statek}{Statek}. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_enemy_a637bd267c02af30ad5af52c55dbf1439}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_enemy_aa1df6763ae3a612f36447340577dcb8e}{\+\_\+\+Physics\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_enemy_a7ee9e823673c80ba43d367df2601ae28}{Play\+Move\+Animation}} (String animation\+Name)
+\begin{DoxyCompactList}\small\item\em Wlacza animacje. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_ae10cce2947737b6c972d7f8acf2d5279}{Play\+Fly\+Off\+Animation}} ()
+\begin{DoxyCompactList}\small\item\em Wlacza animacje odlotu statku po zakonczeniu gry. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_enemy_a148c67b06ccd733a02a4c67ea2c1c182}{Shoot}} ()
+\begin{DoxyCompactList}\small\item\em Strzelanie pociskami przez przeciwnika. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a66653ddf2c657945c85de7f4e9f9246e}{Update\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Aktualizuje punkty gracza. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_enemy_a31fda621ae7daf1016002771a8e1823e}{Hit}} (int dmg)
+\begin{DoxyCompactList}\small\item\em Zebranie obrazen od pociskow gracza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scena pojedynczego przeciwnika. 
+
+Ta klasa przechowuje logike pojedynczego przeciwnika. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_aa1df6763ae3a612f36447340577dcb8e}\label{class_enemy_aa1df6763ae3a612f36447340577dcb8e} 
+\index{Enemy@{Enemy}!\_PhysicsProcess@{\_PhysicsProcess}}
+\index{\_PhysicsProcess@{\_PhysicsProcess}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{\_PhysicsProcess()}{\_PhysicsProcess()}}
+{\footnotesize\ttfamily override void Enemy.\+\_\+\+Physics\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Wywoluje funkcje \doxylink{class_enemy_a148c67b06ccd733a02a4c67ea2c1c182}{Shoot()}, jezeli statek jest gotow do strzalu.
+
+Jezeli statek nie jest w animacji, to wlacza ja za pomoca \doxylink{class_enemy_a7ee9e823673c80ba43d367df2601ae28}{Play\+Move\+Animation()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_a637bd267c02af30ad5af52c55dbf1439}\label{class_enemy_a637bd267c02af30ad5af52c55dbf1439} 
+\index{Enemy@{Enemy}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Enemy.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Podlacza sygnal pokonania przeciwnika do obiektu \doxylink{class_statek}{Statek}. Ustawia animacje dla lotu przeciwnika zaleznie od jego wygenerowanej pozycji startowej, a nastepnie ja wlacza. \Hypertarget{class_enemy_acc5bb2f15feb08b65043c91d0fff4af7}\label{class_enemy_acc5bb2f15feb08b65043c91d0fff4af7} 
+\index{Enemy@{Enemy}!EnemyKilledEventHandler@{EnemyKilledEventHandler}}
+\index{EnemyKilledEventHandler@{EnemyKilledEventHandler}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{EnemyKilledEventHandler()}{EnemyKilledEventHandler()}}
+{\footnotesize\ttfamily delegate void Enemy.\+Enemy\+Killed\+Event\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sygnal pokonania przeciwnika. Emitowany jest do obiektu \doxylink{class_statek}{Statek}. 
+
+\Hypertarget{class_enemy_a31fda621ae7daf1016002771a8e1823e}\label{class_enemy_a31fda621ae7daf1016002771a8e1823e} 
+\index{Enemy@{Enemy}!Hit@{Hit}}
+\index{Hit@{Hit}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Hit()}{Hit()}}
+{\footnotesize\ttfamily async void Enemy.\+Hit (\begin{DoxyParamCaption}\item[{int}]{dmg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zebranie obrazen od pociskow gracza. 
+
+Zmniejsza wartosc punktow zycia przeciwnika i sprawdza, czy sa one mniejsze lub rowne 0. Jezeli tak, to wylacza grafike przeciwnika, wlacza animacje wybuchu i emituje sygnal pokonania przeciwnika do obiektu \doxylink{class_statek}{Statek}. Dodaje rowniez obiekt \doxylink{class_upgrade_weapon}{Upgrade\+Weapon} do sceny w miejscu przeciwnika, jezeli Random wylosuje liczbe 0 (20\% szans). Na samym koncu usuwa obiekt ze sceny.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dmg} & Wartosc obrazen zadanych przeciwnikowi. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_ae10cce2947737b6c972d7f8acf2d5279}\label{class_enemy_ae10cce2947737b6c972d7f8acf2d5279} 
+\index{Enemy@{Enemy}!PlayFlyOffAnimation@{PlayFlyOffAnimation}}
+\index{PlayFlyOffAnimation@{PlayFlyOffAnimation}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{PlayFlyOffAnimation()}{PlayFlyOffAnimation()}}
+{\footnotesize\ttfamily void Enemy.\+Play\+Fly\+Off\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Wlacza animacje odlotu statku po zakonczeniu gry. 
+
+\Hypertarget{class_enemy_a7ee9e823673c80ba43d367df2601ae28}\label{class_enemy_a7ee9e823673c80ba43d367df2601ae28} 
+\index{Enemy@{Enemy}!PlayMoveAnimation@{PlayMoveAnimation}}
+\index{PlayMoveAnimation@{PlayMoveAnimation}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{PlayMoveAnimation()}{PlayMoveAnimation()}}
+{\footnotesize\ttfamily async void Enemy.\+Play\+Move\+Animation (\begin{DoxyParamCaption}\item[{String}]{animation\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Wlacza animacje. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em animation\+Name} & Nazwa animacji. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_a148c67b06ccd733a02a4c67ea2c1c182}\label{class_enemy_a148c67b06ccd733a02a4c67ea2c1c182} 
+\index{Enemy@{Enemy}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Shoot()}{Shoot()}}
+{\footnotesize\ttfamily async void Enemy.\+Shoot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Strzelanie pociskami przez przeciwnika. 
+
+Do sceny dodaje obiekt \doxylink{class_enemy_bullet}{Enemy\+Bullet} i ustawia mu aktualna pozycje przeciwnika. Nastepnie czeka 1 sekunde, aby moc strzelic ponownie. \Hypertarget{class_enemy_a66653ddf2c657945c85de7f4e9f9246e}\label{class_enemy_a66653ddf2c657945c85de7f4e9f9246e} 
+\index{Enemy@{Enemy}!UpdateScore@{UpdateScore}}
+\index{UpdateScore@{UpdateScore}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{UpdateScore()}{UpdateScore()}}
+{\footnotesize\ttfamily void Enemy.\+Update\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Aktualizuje punkty gracza. 
+
+Po pokonaniu przeciwnika dodaje 100 punktow do licznika gracza. Licznik punktow nie moze wyniesc wiecej niz 9999. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_enemy_8cs}{Enemy.\+cs}}\end{DoxyCompactItemize}

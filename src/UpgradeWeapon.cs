@@ -3,7 +3,7 @@ using System;
 
 //! @brief Obiekt ulepszen zbieranych przez statek.
 /*!
-  Klasa ta decyduje o tym jak ulepszyæ statek na podstawie zebranych ulepszen.
+  Klasa ta decyduje o tym jak ulepszyc statek na podstawie zebranych ulepszen.
   Moze ona ulepszyc i odnowic punkty zycia przeciwnika, lub zmienic tryb strzelania.
 */
 public partial class UpgradeWeapon : Node2D

@@ -1,0 +1,78 @@
+\doxysection{Shoot\+Button Class Reference}
+\hypertarget{class_shoot_button}{}\label{class_shoot_button}\index{ShootButton@{ShootButton}}
+
+
+Obiekt przycisku gracza do strzelania pociskow.  
+
+
+Inheritance diagram for Shoot\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shoot_button}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_shoot_button_a51d84c6ab9a3aea1502d7ae1db9d09c2}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_shoot_button_ada67b84a6686ce476050f480e14157df}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_shoot_button_a1947f98b30cb4fd0ce34a53a7075be2d}{shoot\+Ready}} = true
+\begin{DoxyCompactList}\small\item\em Przechowuje informacje o mozliwosci strzalu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Obiekt przycisku gracza do strzelania pociskow. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shoot_button_ada67b84a6686ce476050f480e14157df}\label{class_shoot_button_ada67b84a6686ce476050f480e14157df} 
+\index{ShootButton@{ShootButton}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!ShootButton@{ShootButton}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily override void Shoot\+Button.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Sprawdza czy gracz aktualnie jest w trakcie strzelania i wywoluje funkcje \doxylink{class_statek_a259a404f51c016c71dd7f4916b1b7ea5}{Statek.\+Shoot()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_shoot_button_a51d84c6ab9a3aea1502d7ae1db9d09c2}\label{class_shoot_button_a51d84c6ab9a3aea1502d7ae1db9d09c2} 
+\index{ShootButton@{ShootButton}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!ShootButton@{ShootButton}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Shoot\+Button.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Ustawia dwa sygnaly\+: Pressed i Released.
+
+Sygnal Pressed oznacza, ze gracz aktualnie strzela, a sygnal Released oznacza brak strzelania. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_shoot_button_a1947f98b30cb4fd0ce34a53a7075be2d}\label{class_shoot_button_a1947f98b30cb4fd0ce34a53a7075be2d} 
+\index{ShootButton@{ShootButton}!shootReady@{shootReady}}
+\index{shootReady@{shootReady}!ShootButton@{ShootButton}}
+\doxysubsubsection{\texorpdfstring{shootReady}{shootReady}}
+{\footnotesize\ttfamily bool Shoot\+Button.\+shoot\+Ready = true}
+
+
+
+Przechowuje informacje o mozliwosci strzalu. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{src_2_shoot_button_8cs}{Shoot\+Button.\+cs}}\end{DoxyCompactItemize}

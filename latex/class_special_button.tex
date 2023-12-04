@@ -1,0 +1,71 @@
+\doxysection{Special\+Button Class Reference}
+\hypertarget{class_special_button}{}\label{class_special_button}\index{SpecialButton@{SpecialButton}}
+
+
+Scena przycisku do wystrzelenia pocisku specjalnego.  
+
+
+Inheritance diagram for Special\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_special_button}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_special_button_ab730962b086cf410894177f7081e8092}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_special_button_afb88a34253e6869111df0b4aaa65c0a2}{enemy\+Count\+Required}} = 10
+\begin{DoxyCompactList}\small\item\em Wymagana liczba pokonanych przeciwnikow. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_special_button_ad13939ff4097a7fa2c829419107fcb70}{enemy\+Count}} = 0
+\begin{DoxyCompactList}\small\item\em Liczba aktualnie pokonanych przeciwnikow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scena przycisku do wystrzelenia pocisku specjalnego. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_special_button_ab730962b086cf410894177f7081e8092}\label{class_special_button_ab730962b086cf410894177f7081e8092} 
+\index{SpecialButton@{SpecialButton}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!SpecialButton@{SpecialButton}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Special\+Button.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Podlacza sygnal klikniecia obiektu przez przeciwnika. Sygnal ten sprawdza, czy liczba pokonanych przeciwnikow zgadza sie z liczba wymaganych pokonanych przeciwnikow. Jezeli tak, to wywoluje funkcje \doxylink{class_statek_ad34db098ea80a92266ba2c1ed980993d}{Statek.\+Shoot\+Special()}.
+
+Aktualizuje rowniez wyglad przycisku. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_special_button_ad13939ff4097a7fa2c829419107fcb70}\label{class_special_button_ad13939ff4097a7fa2c829419107fcb70} 
+\index{SpecialButton@{SpecialButton}!enemyCount@{enemyCount}}
+\index{enemyCount@{enemyCount}!SpecialButton@{SpecialButton}}
+\doxysubsubsection{\texorpdfstring{enemyCount}{enemyCount}}
+{\footnotesize\ttfamily int Special\+Button.\+enemy\+Count = 0}
+
+
+
+Liczba aktualnie pokonanych przeciwnikow. 
+
+\Hypertarget{class_special_button_afb88a34253e6869111df0b4aaa65c0a2}\label{class_special_button_afb88a34253e6869111df0b4aaa65c0a2} 
+\index{SpecialButton@{SpecialButton}!enemyCountRequired@{enemyCountRequired}}
+\index{enemyCountRequired@{enemyCountRequired}!SpecialButton@{SpecialButton}}
+\doxysubsubsection{\texorpdfstring{enemyCountRequired}{enemyCountRequired}}
+{\footnotesize\ttfamily int Special\+Button.\+enemy\+Count\+Required = 10}
+
+
+
+Wymagana liczba pokonanych przeciwnikow. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{src_2_special_button_8cs}{Special\+Button.\+cs}}\end{DoxyCompactItemize}

@@ -1,6 +1,10 @@
 using Godot;
 using System;
 
+//! @brief Obiekt odpowiadajacy za jostick do poruszania statkiem.
+/*!
+  Klasa ta zbiera dane z joysticka, o tym, gdzie gracz chce pokierowac statkiem i przesyla je do klasy Statek.
+*/
 public partial class Joystick : TouchScreenButton
 {
     [Export]
@@ -10,13 +14,25 @@ public partial class Joystick : TouchScreenButton
     private Vector2 buttonSize;
     private Vector2 buttonPosition;
     Node stateknode;
-    
+
+    /*! @brief Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny
+    *
+    * Ustawia zmienne przechowujace rozmiar przycisku.
+    */
     public override void _Ready()
     {
         buttonSize = new Vector2(TexturePressed.GetWidth(), TexturePressed.GetHeight());
         stateknode = GetTree().Root.GetNode("Game/Player/Statek");
 
     }
+
+    /*! @brief Funkcja wlaczajaca sie w kazdej klatce gry.
+    *
+    * Pobiera wartosci z joysticka, jezeli jest wcisniety, i wysyla je do obiektu Statek poprzez Statek.reciveJoystick().
+    * Jezeli nie, to ustawia wartosci na 0.
+    * 
+    * @param delta Oznacza czas ktory minal od ostatniej klatki gry.
+    */
     public override void _Process(double delta)
     {
         if (!IsPressed())
@@ -29,6 +45,15 @@ public partial class Joystick : TouchScreenButton
             stateknode.Call("ReciveJoystick", Position / granica);
         }
     }
+
+    /*! @brief Funkcja wlaczajaca sie kiedy gra wykryje wprowadzenie danych od gracza.
+   *
+   * Sprawdzane jest wydarzenie.
+   * Jezeli wydarzenie jest wcisnieciem przycisku joysticka, to sprawdza czy gracz wciska przycisk w polu pocisku.
+   * Jezeli tak, to zapisuje dane o pozycji przycisku.
+   * 
+   * @param inputEvent Jest to wydarzenie, ktore gra wykryje.
+   */
     public override void _Input(InputEvent inputEvent)
     {
         if (!IsPressed())

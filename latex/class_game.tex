@@ -1,0 +1,151 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+Glowna scena gry.  
+
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_game_adb6601522ba9f3043e9a310eeafbdae8}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a33e2f245e3240cf33a6c21e161919c7f}{Start\+Wave}} ()
+\begin{DoxyCompactList}\small\item\em Zwieksza numer fali i wywoluje funkcje generowania przeciwnikow. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_ab6ddf8c5a2e0a56fb6a449e46d8e9967}{Game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy gracz przegra gre. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_game_ab50cbdbe42ca0bf2c3e747ec14998d4f}{Enemy\+Fly\+Off\+Animation}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca animacje odlotu przeciwnikow po koncu gry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a762923596c03484a181868e19c5a8165}{\+\_\+on\+\_\+button\+\_\+pressed}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wywolujaca sie po kliknieciu ekranu na ekranie przegranej. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_abca27a017f6d724f1a7002a37bf6653d}{\+\_\+on\+\_\+\+Start\+Button\+\_\+pressed}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wywolujaca sie po kliknieciu ekranu na ekranie startowym. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_game_a19aa272ee6cf9b5578929da7d7ce0f6a}{wave}} = 0
+\begin{DoxyCompactList}\small\item\em Numer fali przeciwnikow. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_a97db5cd0f581ca9eb1a10e5af9d40a9e}{high\+Score}} = 0
+\begin{DoxyCompactList}\small\item\em Rekord gracza. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_wave}{Wave}} \mbox{\hyperlink{class_game_aae6fbb96dd0f774895714ca35f912cbb}{fala}}
+\begin{DoxyCompactList}\small\item\em Scena \doxylink{class_wave}{Wave}, w ktorej generowane sa obiekty \doxylink{class_enemy}{Enemy}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Glowna scena gry. 
+
+Ta klasa jest glowna scena do ktorej nastepnie dodawane sa wszystkie inne obiekty takie jak \doxylink{class_statek}{Statek}, \doxylink{class_wave}{Wave}, \doxylink{class_enemy}{Enemy} itp. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a762923596c03484a181868e19c5a8165}\label{class_game_a762923596c03484a181868e19c5a8165} 
+\index{Game@{Game}!\_on\_button\_pressed@{\_on\_button\_pressed}}
+\index{\_on\_button\_pressed@{\_on\_button\_pressed}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_on\_button\_pressed()}{\_on\_button\_pressed()}}
+{\footnotesize\ttfamily void Game.\+\_\+on\+\_\+button\+\_\+pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wywolujaca sie po kliknieciu ekranu na ekranie przegranej. 
+
+Przeladuj scene z gra. \Hypertarget{class_game_abca27a017f6d724f1a7002a37bf6653d}\label{class_game_abca27a017f6d724f1a7002a37bf6653d} 
+\index{Game@{Game}!\_on\_StartButton\_pressed@{\_on\_StartButton\_pressed}}
+\index{\_on\_StartButton\_pressed@{\_on\_StartButton\_pressed}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_on\_StartButton\_pressed()}{\_on\_StartButton\_pressed()}}
+{\footnotesize\ttfamily void Game.\+\_\+on\+\_\+\+Start\+Button\+\_\+pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wywolujaca sie po kliknieciu ekranu na ekranie startowym. 
+
+Ukrywa ekran startowy i wywoluje funkcje \doxylink{class_statek_ae50446212708fb3af5d07a1db415a898}{Statek.\+Start()}. \Hypertarget{class_game_adb6601522ba9f3043e9a310eeafbdae8}\label{class_game_adb6601522ba9f3043e9a310eeafbdae8} 
+\index{Game@{Game}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Game.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Sprawdza czy istnieje juz plik zapisu i wczytuje rekord gracza. Jezeli plik nie istnieje, tworzy nowy.
+
+Dodaje do sceny obiekt fali przeciwnikow i rozpoczyna generowanie fal. \Hypertarget{class_game_ab50cbdbe42ca0bf2c3e747ec14998d4f}\label{class_game_ab50cbdbe42ca0bf2c3e747ec14998d4f} 
+\index{Game@{Game}!EnemyFlyOffAnimation@{EnemyFlyOffAnimation}}
+\index{EnemyFlyOffAnimation@{EnemyFlyOffAnimation}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{EnemyFlyOffAnimation()}{EnemyFlyOffAnimation()}}
+{\footnotesize\ttfamily async void Game.\+Enemy\+Fly\+Off\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca animacje odlotu przeciwnikow po koncu gry. 
+
+Funkcja przechodzi w petli po koleji po kazdym przeciwnikow. W kazdej iteracji petli czeka 2 sekundy i wywoluje \doxylink{class_enemy_ae10cce2947737b6c972d7f8acf2d5279}{Enemy.\+Play\+Fly\+Off\+Animation()}.
+
+Funkcja czeka 2 sekundy w kazdej iteracji aby otrzymac efekt odlatywania przeciwnikow jeden po drugim, zamiast wszyscy na raz. \Hypertarget{class_game_ab6ddf8c5a2e0a56fb6a449e46d8e9967}\label{class_game_ab6ddf8c5a2e0a56fb6a449e46d8e9967} 
+\index{Game@{Game}!GameOver@{GameOver}}
+\index{GameOver@{GameOver}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GameOver()}{GameOver()}}
+{\footnotesize\ttfamily void Game.\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy gracz przegra gre. 
+
+Jezeli gracz uzyskal nowy rekord, zapisuje go do pliku .txt Wyswietla wiadomosc o nowym rekordzie.
+
+Wylacza sterowanie graczowi za pomoca \doxylink{class_statek_a1a732e73ff14442d6b9139ba59e1bd65}{Statek.\+Change\+Process\+Mode()}.
+
+Wywoluje \doxylink{class_game_ab50cbdbe42ca0bf2c3e747ec14998d4f}{Enemy\+Fly\+Off\+Animation()}. \Hypertarget{class_game_a33e2f245e3240cf33a6c21e161919c7f}\label{class_game_a33e2f245e3240cf33a6c21e161919c7f} 
+\index{Game@{Game}!StartWave@{StartWave}}
+\index{StartWave@{StartWave}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{StartWave()}{StartWave()}}
+{\footnotesize\ttfamily void Game.\+Start\+Wave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwieksza numer fali i wywoluje funkcje generowania przeciwnikow. 
+
+Wywoluje funkcje \doxylink{class_wave_a0c56486601d2ec0f1e78ac7efc6fe599}{Wave.\+Add\+Enemies()} aby wygenerowac przeciwnikow. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_aae6fbb96dd0f774895714ca35f912cbb}\label{class_game_aae6fbb96dd0f774895714ca35f912cbb} 
+\index{Game@{Game}!fala@{fala}}
+\index{fala@{fala}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{fala}{fala}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_wave}{Wave}} Game.\+fala}
+
+
+
+Scena \doxylink{class_wave}{Wave}, w ktorej generowane sa obiekty \doxylink{class_enemy}{Enemy}. 
+
+\Hypertarget{class_game_a97db5cd0f581ca9eb1a10e5af9d40a9e}\label{class_game_a97db5cd0f581ca9eb1a10e5af9d40a9e} 
+\index{Game@{Game}!highScore@{highScore}}
+\index{highScore@{highScore}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{highScore}{highScore}}
+{\footnotesize\ttfamily int Game.\+high\+Score = 0}
+
+
+
+Rekord gracza. 
+
+\Hypertarget{class_game_a19aa272ee6cf9b5578929da7d7ce0f6a}\label{class_game_a19aa272ee6cf9b5578929da7d7ce0f6a} 
+\index{Game@{Game}!wave@{wave}}
+\index{wave@{wave}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{wave}{wave}}
+{\footnotesize\ttfamily int Game.\+wave = 0}
+
+
+
+Numer fali przeciwnikow. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_game_8cs}{Game.\+cs}}\end{DoxyCompactItemize}

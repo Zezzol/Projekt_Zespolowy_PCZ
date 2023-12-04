@@ -1,0 +1,90 @@
+\doxysection{Enemy\+Bullet Class Reference}
+\hypertarget{class_enemy_bullet}{}\label{class_enemy_bullet}\index{EnemyBullet@{EnemyBullet}}
+
+
+Obiekt pocisku przeciwnika.  
+
+
+Inheritance diagram for Enemy\+Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_bullet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_enemy_bullet_aef4e7cff69020b9fa7cd4ba959b706d3}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_enemy_bullet_a29fbcacd57d0ff4cd6afcc264d0d3435}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector2 \mbox{\hyperlink{class_enemy_bullet_ad0987fd0f200e91e0f15f0fe3a66a4ee}{tor\+\_\+lotu}} = Vector2.\+Zero
+\begin{DoxyCompactList}\small\item\em Tor lotu pocisku. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_bullet_a1b71d712462333c718a86f62a32aa4c0}{bullet\+Dmg}} = 0
+\begin{DoxyCompactList}\small\item\em Wartosc obrazen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Obiekt pocisku przeciwnika. 
+
+Ta klasa przechowuje tor lotu pocisku, oraz obrazenia zadane nim. Posiada tez Visibility\+Notifier, aby wiadomo bylo, kiedy pocisk wyszedl poza ekran. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_bullet_a29fbcacd57d0ff4cd6afcc264d0d3435}\label{class_enemy_bullet_a29fbcacd57d0ff4cd6afcc264d0d3435} 
+\index{EnemyBullet@{EnemyBullet}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!EnemyBullet@{EnemyBullet}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily override void Enemy\+Bullet.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Funkcja ta, odpowiada za poruszanie pociskiem po domyslnym torze lotu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_bullet_aef4e7cff69020b9fa7cd4ba959b706d3}\label{class_enemy_bullet_aef4e7cff69020b9fa7cd4ba959b706d3} 
+\index{EnemyBullet@{EnemyBullet}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!EnemyBullet@{EnemyBullet}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Enemy\+Bullet.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Ustawia Visibility\+Notifier. Jezeli gra wykryje, ze pocisk jest poza ekranem gry, to usunie go. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_enemy_bullet_a1b71d712462333c718a86f62a32aa4c0}\label{class_enemy_bullet_a1b71d712462333c718a86f62a32aa4c0} 
+\index{EnemyBullet@{EnemyBullet}!bulletDmg@{bulletDmg}}
+\index{bulletDmg@{bulletDmg}!EnemyBullet@{EnemyBullet}}
+\doxysubsubsection{\texorpdfstring{bulletDmg}{bulletDmg}}
+{\footnotesize\ttfamily int Enemy\+Bullet.\+bullet\+Dmg = 0}
+
+
+
+Wartosc obrazen. 
+
+\Hypertarget{class_enemy_bullet_ad0987fd0f200e91e0f15f0fe3a66a4ee}\label{class_enemy_bullet_ad0987fd0f200e91e0f15f0fe3a66a4ee} 
+\index{EnemyBullet@{EnemyBullet}!tor\_lotu@{tor\_lotu}}
+\index{tor\_lotu@{tor\_lotu}!EnemyBullet@{EnemyBullet}}
+\doxysubsubsection{\texorpdfstring{tor\_lotu}{tor\_lotu}}
+{\footnotesize\ttfamily Vector2 Enemy\+Bullet.\+tor\+\_\+lotu = Vector2.\+Zero}
+
+
+
+Tor lotu pocisku. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_enemy_bullet_8cs}{Enemy\+Bullet.\+cs}}\end{DoxyCompactItemize}

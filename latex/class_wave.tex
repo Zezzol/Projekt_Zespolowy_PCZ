@@ -1,0 +1,79 @@
+\doxysection{Wave Class Reference}
+\hypertarget{class_wave}{}\label{class_wave}\index{Wave@{Wave}}
+
+
+Klasa odpowiadajaca za generowanie fal przeciwnikow.  
+
+
+Inheritance diagram for Wave\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_wave}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_wave_a3b7dac79b3548c45ea6cd9fa4d77f520}{\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_wave_a2b59e709851b0f74bf7415d1cb7cf9a7}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Funkcja wlaczajaca sie w kazdej klatce gry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wave_a0c56486601d2ec0f1e78ac7efc6fe599}{Add\+Enemies}} (int enemy\+Count)
+\begin{DoxyCompactList}\small\item\em Odpowiada za generowanie przeciwnikow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa odpowiadajaca za generowanie fal przeciwnikow. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_wave_a2b59e709851b0f74bf7415d1cb7cf9a7}\label{class_wave_a2b59e709851b0f74bf7415d1cb7cf9a7} 
+\index{Wave@{Wave}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily override void Wave.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie w kazdej klatce gry. 
+
+Sprawdza czy obiekt ten posiada obiekty przeciwnikow. Jezeli nie, to wywoluje funkcje \doxylink{class_game_a33e2f245e3240cf33a6c21e161919c7f}{Game.\+Start\+Wave()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Oznacza czas ktory minal od ostatniej klatki gry. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wave_a3b7dac79b3548c45ea6cd9fa4d77f520}\label{class_wave_a3b7dac79b3548c45ea6cd9fa4d77f520} 
+\index{Wave@{Wave}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily override void Wave.\+\_\+\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funkcja wlaczajaca sie kiedy obiekt zostaje dodany do sceny. 
+
+Ustawia zmienna przechowujaca obiekt sceny pojedynczego przeciwnika. \Hypertarget{class_wave_a0c56486601d2ec0f1e78ac7efc6fe599}\label{class_wave_a0c56486601d2ec0f1e78ac7efc6fe599} 
+\index{Wave@{Wave}!AddEnemies@{AddEnemies}}
+\index{AddEnemies@{AddEnemies}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{AddEnemies()}{AddEnemies()}}
+{\footnotesize\ttfamily void Wave.\+Add\+Enemies (\begin{DoxyParamCaption}\item[{int}]{enemy\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Odpowiada za generowanie przeciwnikow. 
+
+Na poczatku funkcja sprawdza czy enemy\+Count jest wieksze od 6. Jezeli tak, to ustawia ten parametr na 6.
+
+W petli funkcja losuje pozycje przeciwnikow i po koleji ich dodaje do sceny jako obiekty podrzedne w tej klasie.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy\+Count} & Parametr oznaczajacy ilosc przeciwnikow do wygenerowania, \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_wave_8cs}{Wave.\+cs}}\end{DoxyCompactItemize}
